@@ -1,4 +1,4 @@
-const db = require("../models");
+const User = require("../models/user");
 
 // Defining methods for the postsController
 module.exports = {
@@ -14,7 +14,7 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
-    db.Post.create(req.body)
+    User.create(req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
