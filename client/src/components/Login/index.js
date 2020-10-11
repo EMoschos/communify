@@ -2,10 +2,8 @@ import React, { useState } from "react";
 import API from "../../utils/API"
 
 
-function SignUpForm(props) {
+function LoginForm(props) {
   const [state, setState] = useState({
-    firstName: "",
-    lastName: "",
     email: "",
     password: ""
   })
@@ -19,24 +17,20 @@ function SignUpForm(props) {
 
   const handleFormSubmit = (e) => {
     e.preventDefault()
-    if (state.email && state.password && state.firstName && state.lastName) {
-      const userSignUp = {
+    if (state.email && state.password) {
+      const userLogin = {
         "email": state.email,
-        "password": state.password,
-        "firstName": state.firstName,
-        "lastName": state.lastName
+        "password": state.password
       }
-      API.signUp(userSignUp).then(res => {
+      API.login(userLogin).then(res => {
         console.log(res.data)
         if (res.status === 200) {
           setState({
-            firstName: "",
-            lastName: "",
             email: "",
             password: ""
           })
-          console.log("Successful Save of User")
-          window.location.replace("/home");
+          console.log("Login of User")
+          window.location.replace("/Account");
         } else {
           console.log("Some error ocurred");
         }
@@ -47,36 +41,11 @@ function SignUpForm(props) {
     } else {
       console.log('Please enter valid username and password')
     }
-
   }
 
   return (
     <div className="row">
       <form className="col s12">
-        <div className="row">
-          <div className="input-field col s6">
-            <input
-              placeholder="i.e. John"
-              id="firstName"
-              type="text"
-              className="validate"
-              value={state.firstName}
-              onChange={handleChange}
-            />
-            <label htmlFor="firstName">First Name</label>
-          </div>
-          <div className="input-field col s6">
-            <input
-              placeholder="i.e. Smith"
-              id="lastName"
-              type="text"
-              className="validate"
-              value={state.lastName}
-              onChange={handleChange}
-            />
-            <label htmlFor="lastName">Last Name</label>
-          </div>
-        </div>
         <div className="row">
           <div className="input-field col s12">
             <input
@@ -113,4 +82,4 @@ function SignUpForm(props) {
   );
 }
 
-export default SignUpForm;
+export default LoginForm;

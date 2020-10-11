@@ -3,8 +3,7 @@ const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 const mongoose = require("mongoose");
 const routes = require("./controllers/routes");
-const isAuth = require("./controllers/routes/isAuth");
-const passport = require("./controllers/passport/passport2");
+const passport = require("./controllers/passport/passport");
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -17,8 +16,6 @@ app.use(express.json());
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
-// Add routes, both API and view
-app.use(routes);
 
 // Connect to the Mongo DB
 mongoose
@@ -47,7 +44,8 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use("/api/auth", isAuth);
+// Add routes, both API and view
+app.use(routes);
 
 // Start the API server
 app.listen(PORT, function () {
