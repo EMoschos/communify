@@ -35,6 +35,12 @@ router
     res.redirect("/");
   });
 
+    // Matches with "/api/user/getUser"
+  router
+  .route("/getUser")
+  .get((req, res) => {
+    res.send(req.user)
+  });
 
 // Matches with "/api/user/:id"
 router

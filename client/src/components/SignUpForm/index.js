@@ -3,7 +3,7 @@ import API from "../../utils/API"
 
 
 function SignUpForm(props) {
-  const [state, setState] = useState({
+  const [signUpUser, setSignUpUser] = useState({
     firstName: "",
     lastName: "",
     email: "",
@@ -11,25 +11,25 @@ function SignUpForm(props) {
   })
   const handleChange = (e) => {
     const { id, value } = e.target
-    setState(prevState => ({
+    setSignUpUser(prevState => ({
       ...prevState,
       [id]: value
     }))
   }
 
-  const handleFormSubmit = (e) => {
+  const handleSignUp = (e) => {
     e.preventDefault()
-    if (state.email && state.password && state.firstName && state.lastName) {
+    if (signUpUser.email && signUpUser.password && signUpUser.firstName && signUpUser.lastName) {
       const userSignUp = {
-        "email": state.email,
-        "password": state.password,
-        "firstName": state.firstName,
-        "lastName": state.lastName
+        "email": signUpUser.email,
+        "password": signUpUser.password,
+        "firstName": signUpUser.firstName,
+        "lastName": signUpUser.lastName
       }
       API.signUp(userSignUp).then(res => {
         console.log(res.data)
         if (res.status === 200) {
-          setState({
+          setSignUpUser({
             firstName: "",
             lastName: "",
             email: "",
@@ -60,7 +60,7 @@ function SignUpForm(props) {
               id="firstName"
               type="text"
               className="validate"
-              value={state.firstName}
+              value={signUpUser.firstName}
               onChange={handleChange}
             />
             <label htmlFor="firstName">First Name</label>
@@ -71,7 +71,7 @@ function SignUpForm(props) {
               id="lastName"
               type="text"
               className="validate"
-              value={state.lastName}
+              value={signUpUser.lastName}
               onChange={handleChange}
             />
             <label htmlFor="lastName">Last Name</label>
@@ -84,7 +84,7 @@ function SignUpForm(props) {
               id="email"
               type="email"
               className="validate"
-              value={state.email}
+              value={signUpUser.email}
               onChange={handleChange}
             />
             <label htmlFor="email">Email</label>
@@ -97,14 +97,14 @@ function SignUpForm(props) {
               id="password"
               type="password"
               className="validate"
-              value={state.password}
+              value={signUpUser.password}
               onChange={handleChange}
             />
             <label htmlFor="password">Password</label>
           </div>
         </div>
         <div className="row">
-          <button className="btn waves-effect waves-light" type="submit" name="action" onClick={handleFormSubmit}>Submit
+          <button className="btn waves-effect waves-light" type="submit" name="action" onClick={handleSignUp}>Submit
           <i className="material-icons right">send</i>
           </button>
         </div>

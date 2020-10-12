@@ -1,32 +1,36 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Home from "./pages/Home";
-import Account from "./pages/Account";
-import NoMatch from "./pages/NoMatch";
-import SignUpForm from "./components/SignUpForm"
-import Login from "./components/Login"
+import React, { useState } from "react";
+import {BrowserRouter} from "react-router-dom";
 import Nav from "./components/Nav";
-import Cookies from 'js-cookie';
+import API from "./utils/API"
+import Router from "./routes/Router"
 
 function App() {
-const print = () => console.log(Cookies.get("connect-sid"))
+  const [user, setUser] = useState({
 
-print()
+  })
+
+  const getUser = () => {
+    API.getUser().then(res => {
+      console.log(res.data);
+      setUser(res.data)
+    })
+  }
 
   return (
-    <Router>
+    <BrowserRouter>
       <div>
-          <Nav />
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/home" component={Home} />
-            <Route exact path="/signup" component={SignUpForm} />
-            <Route exact path="/account" component={Account} />
-            <Route exact path="/login" component={Login} />
-            <Route component={NoMatch} />
-          </Switch>
+        <Nav />
+        <button className="btn waves-effect waves-light" type="submit" name="action" onClick={getUser}>Get User
+          <i className="material-icons right">send</i>
+        </button>
+        <div>
+          {
+            user ? <h1>Hi @ {user.firstName} </h1> : null
+          }
+        </div>
+        <Router />
       </div>
-    </Router>
+    </BrowserRouter>
   );
 }
 

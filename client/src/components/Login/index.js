@@ -3,13 +3,13 @@ import API from "../../utils/API"
 
 
 function LoginForm(props) {
-  const [state, setState] = useState({
+  const [loginUser, setLoginUser] = useState({
     email: "",
     password: ""
   })
   const handleChange = (e) => {
     const { id, value } = e.target
-    setState(prevState => ({
+    setLoginUser(prevState => ({
       ...prevState,
       [id]: value
     }))
@@ -17,15 +17,15 @@ function LoginForm(props) {
 
   const handleFormSubmit = (e) => {
     e.preventDefault()
-    if (state.email && state.password) {
+    if (loginUser.email && loginUser.password) {
       const userLogin = {
-        "email": state.email,
-        "password": state.password
+        "email": loginUser.email,
+        "password": loginUser.password
       }
       API.login(userLogin).then(res => {
         console.log(res.data)
         if (res.status === 200) {
-          setState({
+          setLoginUser({
             email: "",
             password: ""
           })
@@ -53,7 +53,7 @@ function LoginForm(props) {
               id="email"
               type="email"
               className="validate"
-              value={state.email}
+              value={loginUser.email}
               onChange={handleChange}
             />
             <label htmlFor="email">Email</label>
@@ -66,7 +66,7 @@ function LoginForm(props) {
               id="password"
               type="password"
               className="validate"
-              value={state.password}
+              value={loginUser.password}
               onChange={handleChange}
             />
             <label htmlFor="password">Password</label>
