@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import API from "../../utils/API"
+import Auth from "../../routes/Auth"
 
 
 function SignUpForm(props) {
@@ -36,7 +37,8 @@ function SignUpForm(props) {
             password: ""
           })
           console.log("Successful Save of User")
-          window.location.replace("/home");
+          Auth.authenticateUser(res.data.email)
+          window.location.replace("/Account");
         } else {
           console.log("Some error ocurred");
         }

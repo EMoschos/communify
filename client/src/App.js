@@ -6,7 +6,6 @@ import Router from "./routes/Router"
 
 function App() {
   const [user, setUser] = useState({
-
   })
 
   const getUser = () => {
@@ -25,7 +24,7 @@ function App() {
         </button>
         <div>
           {
-            user ? <h1>Hi @ {user.firstName} </h1> : null
+            user ? (<h1>Hi @ {user.email} </h1>) : (null)
           }
         </div>
         <Router />

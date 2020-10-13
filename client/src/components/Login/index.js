@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import API from "../../utils/API"
-
+import Auth from "../../routes/Auth"
 
 function LoginForm(props) {
   const [loginUser, setLoginUser] = useState({
@@ -30,6 +30,7 @@ function LoginForm(props) {
             password: ""
           })
           console.log("Login of User")
+          Auth.authenticateUser(res.data.email)
           window.location.replace("/Account");
         } else {
           console.log("Some error ocurred");

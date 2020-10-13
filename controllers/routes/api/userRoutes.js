@@ -39,6 +39,7 @@ router
   router
   .route("/getUser")
   .get((req, res) => {
+    console.log(req.user)
     res.send(req.user)
   });
 

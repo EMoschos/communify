@@ -1,36 +1,41 @@
-import API from "../utils/API"
+class Auth {
 
-export default {
-    authenticate: function () {
-        API.getUser().then(res => {
-            let isAuthenticated = true;
-            console.log(res.data);
-            if (res.data) {
-                isAuthenticated = true
-                console.log("In IF statement")
-                console.log(isAuthenticated)
-                return isAuthenticated;
-            } else {
-                isAuthenticated = false
-                console.log("In else statement")
-                console.log(isAuthenticated)
-                return isAuthenticated;
-            }
-        })
+    /**
+     * Authenticate a user. Save a token string in Local Storage
+     *
+     * @param {string} token
+     */
+    static authenticateUser(token) {
+      localStorage.setItem('token', token);
+    }
 
-    },
-}
+    /**
+     * Check if a user is authenticated - check if a token is saved in Local Storage
+     *
+     * @returns {boolean}
+     */
+    static isUserAuthenticated() {
+      return localStorage.getItem('token') !== null;
+    }
 
-// const Auth = {
-//     isAuthenticated: false,
-//     authenticate() {
-//         this.isAuthenticated = true;
-//     },
-//     signout() {
-//         this.isAuthenticated = false;
-//     },
-//     getAuth() {
-//         return this.isAuthenticated;
-//     }
-// };
-// export default Auth;
+    /**
+     * Deauthenticate a user. Remove a token from Local Storage.
+     *
+     */
+    static deauthenticateUser() {
+      localStorage.removeItem('token');
+    }
+
+    /**
+     * Get a token value.
+     *
+     * @returns {string}
+     */
+
+    static getToken() {
+      return localStorage.getItem('token');
+    }
+
+  }
+
+  export default Auth;
