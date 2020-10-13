@@ -23,7 +23,7 @@ function Nav() {
 
   return (
     <header>
-      <nav>
+      <nav className="grey" role="navigation">
         <div className="nav-wrapper">
           <a href="/" className="brand-logo">Logo</a>
           <a href="/" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a>
