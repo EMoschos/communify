@@ -29,6 +29,26 @@ const UserSchema = new Schema({
     match: [/.+@.+\..+/, "Please enter a valid e-mail address"]
   },
 
+  skills: {
+    type: Array,
+    default: ["Add Skills Here"],
+  },
+
+  experience: {
+    type: Array,
+    default: ["Add Experience Here"],
+  },
+
+  statusPoints: {
+    type: Number,
+    default: 0,
+  },
+
+  statusLevel: {
+    type: String,
+    default: "Scout",
+  },
+
   userCreated: {
     type: Date,
     default: Date.now
@@ -48,10 +68,10 @@ UserSchema.pre('save', function (next) {
 
 UserSchema.methods = {
   validPassword: function (inputPassword) {
-  return bcrypt.compareSync(inputPassword, this.password)
-},
+    return bcrypt.compareSync(inputPassword, this.password)
+  },
   hashPassword: plainTextPassword => {
-  return bcrypt.hashSync(plainTextPassword, 10)
+    return bcrypt.hashSync(plainTextPassword, 10)
   }
 }
 
