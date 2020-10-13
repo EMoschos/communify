@@ -1,2 +1,4 @@
-export const User = require("./user");
-export const Task = require("./task");
+module.exports = {
+  User: require("./user"),
+  Task: require("./task")
+};
