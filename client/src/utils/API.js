@@ -16,5 +16,8 @@ export default {
   // Logout a User
   logOut: function() {
     return axios.get("/api/user/logout");
-  }
+  },
+  taskCreate: function(taskData) {
+    return axios.post("/api/task/create", taskData);
+  },
 };

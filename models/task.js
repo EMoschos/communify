@@ -3,13 +3,13 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const TaskSchema = new Schema({
-    Title: {
+    title: {
         type: String,
         trim: true,
         required: "Title is Required"
     },
 
-    Description: {
+    description: {
         type: String,
         trim: true,
         required: "Description is Required"
@@ -27,10 +27,9 @@ const TaskSchema = new Schema({
         required: "Location is Required",
     },
 
-    status: {
-        type: String,
-        trim: true,
-        required: "status is Required",
+    statusValue: {
+        type: Number,
+        default: 100,
     },
 
     createdBy: {
@@ -38,28 +37,29 @@ const TaskSchema = new Schema({
         required: "Creator is Required",
     },
 
-    statusValue: {
-        type: Number,
-        default: 100,
-        required: "Value is Required",
+    completedBy: {
+        type: String,
+    },
+    
+    taskCreated: {
+        type: Date,
+        default: Date.now
     },
 
     taskExpires: {
         type: Date,
+        default: "No date set",
     },
 
-    completedBy: {
+    taskStatus: {
         type: String,
+        trim: true,
+        default: "Open",
     },
 
     taskCompleted: {
         type: Boolean,
         default: false
-    },
-
-    taskCreated: {
-        type: Date,
-        default: Date.now
     }
 });
 

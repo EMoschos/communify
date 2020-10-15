@@ -30,6 +30,7 @@ function Nav() {
           <ul className="right hide-on-med-and-down">
             <li><a href="/signup">Signup</a></li>
             <li><a href="/login">Login</a></li>
+            <li><a href="/account">Account</a></li>
             <li><a href="/logout" onClick={handleLogOut}>LogOut</a></li>
           </ul>
         </div>
@@ -38,6 +39,7 @@ function Nav() {
         <li><a href="/signup">Signup</a></li>
         <li><a href="/account">Account</a></li>
         <li><a href="/login">Login</a></li>
+        <li><a href="/account">Account</a></li>
         <li><a href="/logout" onClick={handleLogOut}>LogOut</a></li>
       </ul>
     </header>
