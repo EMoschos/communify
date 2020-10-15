@@ -1,37 +1,38 @@
 import React from "react";
 import M from 'materialize-css'
+import CreateTask from "../components/TaskCreate"
 
 const Home = () => {
   return (
     <div className="container">
-      <div class="slider">
-        <ul class="slides">
+      <div className="slider">
+        <ul className="slides">
           <li>
             <img src="./img/volunt1.png" alt="Volunteer" />
-            <div class="caption center-align">
+            <div className="caption center-align">
               <h3>This is our big Tagline!</h3>
-              <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+              <h5 className="light grey-text text-lighten-3">Here's our small slogan.</h5>
             </div>
           </li>
           <li>
             <img src="./img/volunt2.jpg" alt="Volunteers" />
-            <div class="caption left-align">
+            <div className="caption left-align">
               <h3>Left Aligned Caption</h3>
-              <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+              <h5 className="light grey-text text-lighten-3">Here's our small slogan.</h5>
             </div>
           </li>
           <li>
             <img src="./img/volunt3.jpg" alt="Volunteer" />
-            <div class="caption right-align">
+            <div className="caption right-align">
               <h3>Right Aligned Caption</h3>
-              <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+              <h5 className="light grey-text text-lighten-3">Here's our small slogan.</h5>
             </div>
           </li>
           <li>
             <img src="./img/volunt4.jpg" alt="Volunteer" />
-            <div class="caption center-align">
+            <div className="caption center-align">
               <h3>This is our big Tagline!</h3>
-              <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+              <h5 className="light grey-text text-lighten-3">Here's our small slogan.</h5>
             </div>
           </li>
         </ul>
@@ -61,13 +62,57 @@ const Home = () => {
           </div>
         </div>
       </div>
-    </div>
+      <div className="section">
+        <ul className="collection">
+          <li className="collection-item avatar">
+            <img src="./img/scout.jpg" alt="" className="circle" />
+            <span className="title">Task</span>
+            <p>First Line <br />
+              Second Line
+                    </p>
+            <a href="#!" className="secondary-content"><i className="material-icons">grade</i></a>
+          </li>
+          <li className="collection-item avatar">
+            <i className="material-icons circle">folder</i>
+            <h6>Test</h6>
+            <p>First Line <br />
+                Second Line
+                    </p>
+            <a href="#!" className="secondary-content"><i className="material-icons">grade</i>Points</a>
+          </li>
+          <li className="collection-item avatar">
+            <i className="material-icons circle green">insert_chart</i>
+            <span className="title">Title</span>
+            <p>First Line <br />
+                  Second Line
+                    </p>
+            <a className="waves-effect waves-light btn modal-trigger secondary-content" href="#modal1">Modal</a>
+
+          </li>
+          <li className="collection-item avatar">
+            <i className="material-icons circle red">play_arrow</i>
+            <span className="title">Title</span>
+            <p>First Line <br />
+                    Second Line
+                    </p>
+            <a href="#!" className="secondary-content"><i className="material-icons">grade</i></a>
+          </li>
+        </ul>
+      </div>
+      <div id="modal1" class="modal">
+        <div class="modal-content">
+          <CreateTask />
+        </div>
+      </div>
+    </div >
   );
 };
 
 document.addEventListener('DOMContentLoaded', function () {
   var elems = document.querySelectorAll('.slider');
   M.Slider.init(elems);
+  var elems1 = document.querySelectorAll('.modal');
+ M.Modal.init(elems1);
 });
 
 export default Home;
