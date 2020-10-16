@@ -20,4 +20,7 @@ export default {
   taskCreate: function(taskData) {
     return axios.post("/api/task/create", taskData);
   },
+  getTasks: function() {
+    return axios.get("/api/task");
+  },
 };

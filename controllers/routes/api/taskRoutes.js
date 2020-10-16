@@ -11,5 +11,17 @@ router
       .catch(err => console.log(err));
   });
 
+router
+  .route("/")
+  .get((req, res) => {
+    db.Task.find({})
+      .then(dbTask => {
+        console.log("Task GET route")
+        console.log(dbTask)
+        res.json(dbTask)
+      })
+      .catch(err => res.status(422).json(err));
+  });
+
 
 module.exports = router;

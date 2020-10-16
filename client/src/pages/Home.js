@@ -1,6 +1,7 @@
 import React from "react";
 import M from 'materialize-css'
 import CreateTask from "../components/TaskCreate"
+import TaskBoard from "../components/TaskBoard";
 
 const Home = () => {
   return (
@@ -63,44 +64,10 @@ const Home = () => {
         </div>
       </div>
       <div className="section">
-        <ul className="collection">
-          <li className="collection-item avatar">
-            <img src="./img/scout.jpg" alt="" className="circle" />
-            <span className="title">Task</span>
-            <p>First Line <br />
-              Second Line
-                    </p>
-            <a href="#!" className="secondary-content"><i className="material-icons">grade</i></a>
-          </li>
-          <li className="collection-item avatar">
-            <i className="material-icons circle">folder</i>
-            <h6>Test</h6>
-            <p>First Line <br />
-                Second Line
-                    </p>
-            <a href="#!" className="secondary-content"><i className="material-icons">grade</i>Points</a>
-          </li>
-          <li className="collection-item avatar">
-            <i className="material-icons circle green">insert_chart</i>
-            <span className="title">Title</span>
-            <p>First Line <br />
-                  Second Line
-                    </p>
-            <a className="waves-effect waves-light btn modal-trigger secondary-content" href="#modal1">Modal</a>
-
-          </li>
-          <li className="collection-item avatar">
-            <i className="material-icons circle red">play_arrow</i>
-            <span className="title">Title</span>
-            <p>First Line <br />
-                    Second Line
-                    </p>
-            <a href="#!" className="secondary-content"><i className="material-icons">grade</i></a>
-          </li>
-        </ul>
+        <TaskBoard/>
       </div>
-      <div id="modal1" class="modal">
-        <div class="modal-content">
+      <div id="modal1" className="modal">
+        <div className="modal-content">
           <CreateTask />
         </div>
       </div>
