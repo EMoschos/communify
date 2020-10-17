@@ -41,6 +41,7 @@ function TaskCreate(props) {
                 "createdBy": Auth.getToken()
             }
             API.createTask(taskData).then(res => {
+                console.log(res)
                 console.log(res.data)
                 if (res.status === 200) {
                     updateContextTasks()
@@ -52,15 +53,19 @@ function TaskCreate(props) {
                         taskExpires: ""
                     })
                     console.log("Successful Save of task")
+                    M.toast({html: "Successful Save of task"})
                 } else {
                     console.log("Some error ocurred");
                 }
             })
                 .catch(err => {
                     console.log(err);
+                    console.log("Some error ocurred")
+                    M.toast({html: "Invalid inputs: Ensure all data is entered correctly"})
                 });
         } else {
             console.log('Please enter valid username and password')
+            M.toast({html: "Invalid inputs: Ensure all data is entered correctly"})
         }
 
     }
@@ -70,11 +75,12 @@ function TaskCreate(props) {
         setNewTask(task => ({ ...task, taskExpires: date }))
     }
 
-    document.addEventListener('DOMContentLoaded', function (event) {
+    document.addEventListener('DOMContentLoaded', function () {
         const elems = document.querySelectorAll('.datepicker');
         const elems1 = document.querySelectorAll('select');
         M.FormSelect.init(elems1);
         M.Datepicker.init(elems, {
+            container: "body",
             format: "dd-mm-yyyy",
             onSelect: datePicker
         })

@@ -8,7 +8,10 @@ router
   .post(isAuth, function (req, res) {
     db.Task.create(req.body)
       .then((dbTask) => res.json(dbTask))
-      .catch(err => console.log(err));
+      .catch(err => {
+        res.status(422).json(err)
+        console.log(err)
+      });
   });
 
 router
