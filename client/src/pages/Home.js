@@ -5,7 +5,7 @@ import TaskBoard from "../components/TaskBoard";
 
 const Home = () => {
   return (
-    <div className="container">
+    <div>
       <div className="slider">
         <ul className="slides">
           <li>
@@ -38,33 +38,35 @@ const Home = () => {
           </li>
         </ul>
       </div>
-      <div className="section">
-        <div className="row">
-          <div className="col s12 m4">
-            <div className="icon-block">
-              <h2 className="center brown-text"><i className="material-icons">flash_on</i></h2>
-              <h5 className="center">Speeds up development</h5>
-              <p className="light">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components. Additionally, we refined animations and transitions to provide a smoother experience for developers.</p>
+      <div className="container">
+        <div className="section">
+          <div className="row">
+            <div className="col s12 m4">
+              <div className="icon-block">
+                <h2 className="center brown-text"><i className="material-icons">flash_on</i></h2>
+                <h5 className="center">Speeds up development</h5>
+                <p className="light">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components. Additionally, we refined animations and transitions to provide a smoother experience for developers.</p>
+              </div>
             </div>
-          </div>
-          <div className="col s12 m4">
-            <div className="icon-block">
-              <h2 className="center brown-text"><i className="material-icons">group</i></h2>
-              <h5 className="center">User Experience Focused</h5>
-              <p className="light">By utilizing elements and principles of Material Design, we were able to create a framework that incorporates components and animations that provide more feedback to users. Additionally, a single underlying responsive system across all platforms allow for a more unified user experience.</p>
+            <div className="col s12 m4">
+              <div className="icon-block">
+                <h2 className="center brown-text"><i className="material-icons">group</i></h2>
+                <h5 className="center">User Experience Focused</h5>
+                <p className="light">By utilizing elements and principles of Material Design, we were able to create a framework that incorporates components and animations that provide more feedback to users. Additionally, a single underlying responsive system across all platforms allow for a more unified user experience.</p>
+              </div>
             </div>
-          </div>
-          <div className="col s12 m4">
-            <div className="icon-block">
-              <h2 className="center brown-text"><i className="material-icons">settings</i></h2>
-              <h5 className="center">Easy to work with</h5>
-              <p className="light">We have provided detailed documentation as well as specific code examples to help new users get started. We are also always open to feedback and can answer any questions a user may have about Materialize.</p>
+            <div className="col s12 m4">
+              <div className="icon-block">
+                <h2 className="center brown-text"><i className="material-icons">settings</i></h2>
+                <h5 className="center">Easy to work with</h5>
+                <p className="light">We have provided detailed documentation as well as specific code examples to help new users get started. We are also always open to feedback and can answer any questions a user may have about Materialize.</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div className="section">
-        <TaskBoard/>
+      <div className="container">
+        <TaskBoard />
       </div>
       <div id="modal1" className="modal">
         <div className="modal-content">
@@ -79,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var elems = document.querySelectorAll('.slider');
   M.Slider.init(elems);
   var elems1 = document.querySelectorAll('.modal');
- M.Modal.init(elems1);
+  M.Modal.init(elems1);
 });
 
 export default Home;

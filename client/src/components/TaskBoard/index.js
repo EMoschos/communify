@@ -1,27 +1,35 @@
-import React, { useState, useEffect } from "react";
-import API from "../../utils/API"
+import React, { useState, useEffect, useContext } from "react";
+// import API from "../../utils/API"
 import M from 'materialize-css'
+import TaskContext from "../../utils/TaskContext"
 
 const TaskBoard = () => {
 
-    const [allTasks, setAllTask] = useState([])
+    const contextTasks = useContext(TaskContext)
+    console.log(contextTasks)
 
-    useEffect(() => {
-        API.getTasks().then((res) => {
-            console.log("Get All Tasks");
-            console.log(res);
-            console.log(res.data);
-            setAllTask(res.data);
-            console.log(allTasks);
-        });
-    }, []);
+    // const [allTasks, setAllTask] = useState([])
+
+    // useEffect(() => {
+    //     API.getTasks().then((res) => {
+    //         console.log("Get All Tasks");
+    //         console.log(res);
+    //         console.log(res.data);
+    //         setAllTask(res.data);
+    //         console.log(allTasks);
+    //     });
+    // }, []);
+
+    const consoleLog = () => {
+        console.log(contextTasks)
+    }
 
     return (
         <ul className="collapsible">
-            {allTasks.map(data => {
+            {contextTasks.map(data => {
                 return (
                     <li key={data._id}>
-                        <div className="collapsible-header">
+                        <div className="collapsible-header" onClick={consoleLog}>
                             <div></div>
                             <div><i className="material-icons">filter_drama</i>
                                 <p>Title: {data.title}</p>
@@ -45,9 +53,9 @@ const TaskBoard = () => {
     );
 };
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     var elems = document.querySelectorAll('.collapsible');
     M.Collapsible.init(elems);
-  });
+});
 
 export default TaskBoard;

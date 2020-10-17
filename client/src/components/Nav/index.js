@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import M from 'materialize-css'
 import API from "../../utils/API"
 import Auth from "../../routes/Auth"
+import UserContext from "../../utils/UserContext"
 
 function Nav() {
+
+  const user = useContext(UserContext)
+  console.log(user.email);
 
   const handleLogOut = (e) => {
     e.preventDefault()
@@ -30,7 +34,7 @@ function Nav() {
           <ul className="right hide-on-med-and-down">
             <li><a href="/signup">Signup</a></li>
             <li><a href="/login">Login</a></li>
-            <li><a href="/account">Account</a></li>
+            <li><a href="/account">Account: {user.email}</a></li>
             <li><a href="/logout" onClick={handleLogOut}>LogOut</a></li>
           </ul>
         </div>
