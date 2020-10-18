@@ -53,7 +53,7 @@ function TaskCreate(props) {
                         taskExpires: ""
                     })
                     console.log("Successful Save of task")
-                    M.toast({html: "Successful Save of task"})
+                    M.toast({ html: "Successful Save of task" })
                 } else {
                     console.log("Some error ocurred");
                 }
@@ -61,11 +61,11 @@ function TaskCreate(props) {
                 .catch(err => {
                     console.log(err);
                     console.log("Some error ocurred")
-                    M.toast({html: "Invalid inputs: Ensure all data is entered correctly"})
+                    M.toast({ html: "Invalid inputs: Ensure all data is entered correctly" })
                 });
         } else {
             console.log('Please enter valid username and password')
-            M.toast({html: "Invalid inputs: Ensure all data is entered correctly"})
+            M.toast({ html: "Invalid inputs: Ensure all data is entered correctly" })
         }
 
     }
@@ -87,78 +87,78 @@ function TaskCreate(props) {
     });
 
     return (
-            <div className="row">
-                <form className="col s12">
-                    <div className="row">
-                        <div className="input-field col s6">
-                            <input
-                                placeholder="Task Title"
-                                id="title"
-                                type="text"
-                                className="validate"
-                                value={newTask.title}
-                                onChange={handleChange}
-                            />
-                            <label htmlFor="title">Title</label>
-                        </div>
-                        <div className="input-field col s6">
-                            <input
-                                placeholder="This task is about..."
-                                id="description"
-                                type="text"
-                                className="validate"
-                                value={newTask.description}
-                                onChange={handleChange}
-                            />
-                            <label htmlFor="description">Description</label>
-                        </div>
+        <div className="row">
+            <form className="col s12">
+                <div className="row">
+                    <div className="input-field col s6">
+                        <input
+                            placeholder="Task Title"
+                            id="title"
+                            type="text"
+                            className="validate"
+                            value={newTask.title}
+                            onChange={handleChange}
+                        />
+                        <label htmlFor="title">Title</label>
                     </div>
-                    <div className="row">
-                        <div className="input-field col s12">
-                            <input
-                                placeholder="Location task to be completed"
-                                id="location"
-                                type="text"
-                                className="validate"
-                                value={newTask.location}
-                                onChange={handleChange}
-                            />
-                            <label htmlFor="location">Location</label>
-                        </div>
+                    <div className="input-field col s6">
+                        <input
+                            placeholder="This task is about..."
+                            id="description"
+                            type="text"
+                            className="validate"
+                            value={newTask.description}
+                            onChange={handleChange}
+                        />
+                        <label htmlFor="description">Description</label>
                     </div>
-                    <div className="row">
-                        <div className="input-field col s6">
-                            <input
-                                placeholder="Expiry Date"
-                                id="taskExpires"
-                                type="text"
-                                className="datepicker"
-                            />
-                            <label htmlFor="taskExpires">Task Expires</label>
-                        </div>
-                        <div className="input-field col s6">
-                            <select
-                                placeholder="This task category is"
-                                id="category"
-                                type="select"
-                                value={newTask.category}
-                                onChange={handleChange}
-                            >
-                                <option value="" disabled>Choose your option</option>
-                                <option value="Physical">Physical</option>
-                                <option value="Education">Education</option>
-                                <option value="IT">IT</option>
-                            </select>
-                            <label>Category</label>
-                        </div>
+                </div>
+                <div className="row">
+                    <div className="input-field col s12">
+                        <input
+                            placeholder="Location task to be completed"
+                            id="location"
+                            type="text"
+                            className="validate"
+                            value={newTask.location}
+                            onChange={handleChange}
+                        />
+                        <label htmlFor="location">Location</label>
                     </div>
-                    <div className="row">
-                        <button className="btn waves-effect waves-light" type="submit" name="action" onClick={handleTaskCreate}>Submit
+                </div>
+                <div className="row">
+                    <div className="input-field col s6">
+                        <input
+                            placeholder="Expiry Date"
+                            id="taskExpires"
+                            type="text"
+                            className="datepicker"
+                        />
+                        <label htmlFor="taskExpires">Task Expires</label>
+                    </div>
+                    <div className="input-field col s6">
+                        <select
+                            placeholder="This task category is"
+                            id="category"
+                            type="select"
+                            value={newTask.category}
+                            onChange={handleChange}
+                        >
+                            <option value="" disabled>Choose your option</option>
+                            <option value="Physical">Physical</option>
+                            <option value="Education">Education</option>
+                            <option value="IT">IT</option>
+                        </select>
+                        <label>Category</label>
+                    </div>
+                </div>
+                <div className="row">
+                    <button className="btn waves-effect waves-light" type="submit" name="action" onClick={handleTaskCreate}>Submit
           <i className="material-icons right">send</i>
-                        </button>
-                    </div>
-                </form>
-            </div>
+                    </button>
+                </div>
+            </form>
+        </div>
     );
 }
 

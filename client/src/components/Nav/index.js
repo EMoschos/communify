@@ -7,7 +7,7 @@ import UserContext from "../../utils/UserContext"
 function Nav() {
 
   const user = useContext(UserContext)
-  console.log(user.email);
+  console.log(user);
 
   const handleLogOut = (e) => {
     e.preventDefault()
@@ -25,6 +25,20 @@ function Nav() {
     })
   }
 
+  const isLoggedInBtns = () => {
+    if (user) {
+      return <>
+        <li><a href="/account">Account: {user.email}</a></li>
+        <li><a href="/logout" onClick={handleLogOut}>LogOut</a></li>
+        </>
+    } else {
+      return <>
+        <li><a href="/signup">Signup</a></li>
+        <li><a href="/login">Login</a></li>
+        </>
+    }
+  }
+
   return (
     <header>
       <nav className="grey" role="navigation">
@@ -32,19 +46,12 @@ function Nav() {
           <a href="/" className="brand-logo">Logo</a>
           <a href="/" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a>
           <ul className="right hide-on-med-and-down">
-            <li><a href="/signup">Signup</a></li>
-            <li><a href="/login">Login</a></li>
-            <li><a href="/account">Account: {user.email}</a></li>
-            <li><a href="/logout" onClick={handleLogOut}>LogOut</a></li>
+            {isLoggedInBtns()}
           </ul>
         </div>
       </nav>
       <ul className="sidenav" id="mobile-demo">
-        <li><a href="/signup">Signup</a></li>
-        <li><a href="/account">Account</a></li>
-        <li><a href="/login">Login</a></li>
-        <li><a href="/account">Account</a></li>
-        <li><a href="/logout" onClick={handleLogOut}>LogOut</a></li>
+        {isLoggedInBtns()}
       </ul>
     </header>
   );
