@@ -17,6 +17,10 @@ export default {
   logOut: function() {
     return axios.get("/api/user/logout");
   },
+  //Update user profile settings
+  userUpdate: function(id, userData){
+    return axios.put("/api/user/" + id, userData);
+  },
   createTask: function(taskData) {
     return axios.post("/api/task/create", taskData);
   },

@@ -31,12 +31,12 @@ const UserSchema = new Schema({
 
   skills: {
     type: Array,
-    default: ["Add Skills Here"],
+    default: ["{Add Skills Here}"],
   },
 
   experience: {
     type: Array,
-    default: ["Add Experience Here"],
+    default: ["{Add Experience Here}"],
   },
 
   statusPoints: {

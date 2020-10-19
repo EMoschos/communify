@@ -22,7 +22,7 @@ router
     });
   });
 
-  // Matches with "/api/user/logout"
+// Matches with "/api/user/logout"
 router
   .route("/logout")
   .get((req, res) => {
@@ -35,8 +35,8 @@ router
     res.redirect("/");
   });
 
-    // Matches with "/api/user/getUser"
-  router
+// Matches with "/api/user/getUser"
+router
   .route("/getUser")
   .get((req, res) => {
     console.log(req.user)
@@ -52,8 +52,13 @@ router
       .catch(err => res.status(422).json(err));
   })
   .put(function (req, res) {
-    db.Post.findOneAndUpdate({ _id: req.params.id }, req.body)
-      .then(dbModel => res.json(dbModel))
+    // req.logOut()
+    db.User.findOneAndUpdate({ _id: req.params.id }, req.body)
+      .then(dbModel => {
+        res.json(dbModel)
+        req.session.passport.user.updatedfield = 'updatedvalue'
+        req.session.save(function (err) { console.log(err); })
+      })
       .catch(err => res.status(422).json(err));
   })
 

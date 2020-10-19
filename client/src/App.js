@@ -18,6 +18,11 @@ function App() {
       console.log(res.data);
       setContextTasks(res.data);
     });
+    API.getUser().then(res => {
+      console.log("update user context");
+      console.log(res.data);
+      setUser(res.data)
+    })
   }
 
   const getUser = () => {
@@ -35,26 +40,28 @@ function App() {
 
 
   return (
-    <UserContext.Provider value={user}>
-      <TaskContext.Provider value={contextTasks}>
-        <FuncContext.Provider value={updateContextTasks}>
-          <BrowserRouter>
+
+    <BrowserRouter>
+      <UserContext.Provider value={user}>
+        <TaskContext.Provider value={contextTasks}>
+          <FuncContext.Provider value={updateContextTasks}>
             <div>
               <Nav />
-              {/* <button className="btn waves-effect waves-light" type="submit" name="action" onClick={getUser}>Get User
+              <button className="btn waves-effect waves-light" type="submit" name="action" onClick={getUser}>Get User
           <i className="material-icons right">send</i>
           </button>
           <div>
             {
-              user ? (<h1>Hi @ {user.email} </h1>) : (null)
+              user ? (<h1>Hi @ {user.firstName} </h1>) : (null)
             }
-          </div> */}
+          </div>
               <Router />
             </div>
-          </BrowserRouter>
-        </FuncContext.Provider>
-      </TaskContext.Provider>
-    </UserContext.Provider>
+          </FuncContext.Provider>
+        </TaskContext.Provider>
+      </UserContext.Provider>
+    </BrowserRouter >
+
   );
 }
 

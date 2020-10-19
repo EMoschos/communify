@@ -6,6 +6,7 @@ import NoMatch from "../pages/NoMatch";
 import SignUpForm from "../components/SignUpForm"
 import Login from "../components/Login"
 import Auth from "../routes/Auth"
+import UpdateUser from "../components/UpdateUser"
 
 function Router(props) {
 
@@ -15,6 +16,7 @@ function Router(props) {
             <Route exact path="/home" component={Home} />
             <Route exact path="/signup" component={SignUpForm} />
             <PrivateRoute exact path="/account" component={Account} />
+            <PrivateRoute exact path="/updateUser" component={UpdateUser} />
             <Route exact path="/login" component={Login} />
             <Route component={NoMatch} />
         </Switch>
