@@ -1,23 +1,19 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 import API from "../../utils/API"
 import Auth from "../../routes/Auth"
 import M from 'materialize-css'
-import TaskContext from "../../utils/TaskContext"
 import FuncContext from "../../utils/FuncContext"
 
 
-function TaskCreate(props) {
+function TaskCreate() {
 
     const updateContextTasks = useContext(FuncContext)
-    const contextTasks = useContext(TaskContext)
 
-    console.log(contextTasks)
     const [newTask, setNewTask] = useState({
         title: "",
         description: "",
         category: "",
         location: ""
-        // taskExpires: ""
     })
 
     const handleChange = (e) => {
@@ -41,7 +37,6 @@ function TaskCreate(props) {
                 "createdBy": Auth.getToken()
             }
             API.createTask(taskData).then(res => {
-                console.log(res)
                 console.log(res.data)
                 if (res.status === 200) {
                     updateContextTasks()

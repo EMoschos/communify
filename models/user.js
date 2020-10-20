@@ -29,6 +29,10 @@ const UserSchema = new Schema({
     match: [/.+@.+\..+/, "Please enter a valid e-mail address"]
   },
 
+  address: {
+    type: String,
+  },
+
   skills: {
     type: Array,
     default: ["{Add Skills Here}"],

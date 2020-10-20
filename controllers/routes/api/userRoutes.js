@@ -52,13 +52,27 @@ router
       .catch(err => res.status(422).json(err));
   })
   .put(function (req, res) {
-    // req.logOut()
-    db.User.findOneAndUpdate({ _id: req.params.id }, req.body)
-      .then(dbModel => {
-        res.json(dbModel)
-        req.session.passport.user.updatedfield = 'updatedvalue'
-        req.session.save(function (err) { console.log(err); })
-      })
+    console.log(req.body)
+    db.User.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true })
+      .then(
+
+        // setTimeout(()=>{db.User.findById(req.params.id)
+        //   .then(dbModel => {
+        //     console.log("inside findone" + dbModel)
+        //     req.login(dbModel, function (err) {
+        //           if (err) return next(err)
+        //           console.log("After relogin: " + req.session.passport.user)
+        //         })
+        //     res.json(dbModel)})
+        //   .catch(err => res.status(422).json(err))}, 1000)
+        dbModel => {
+          req.login(dbModel, function (err) {
+            if (err) return next(err)
+            console.log("After relogin: " + req.session.passport.user)
+            res.json(dbModel)
+          })
+        }
+      )
       .catch(err => res.status(422).json(err));
   })
 

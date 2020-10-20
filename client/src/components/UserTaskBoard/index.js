@@ -1,36 +1,12 @@
 import React, { useContext } from "react";
 import M from 'materialize-css'
-import TaskContext from "../../utils/TaskContext"
 import "./style.css";
-import API from "../../utils/API"
-import FuncContext from "../../utils/FuncContext"
 
-const TaskBoard = () => {
-
-    const contextTasks = useContext(TaskContext)
-    const updateContextTasks = useContext(FuncContext)
-
-    const taskAccept = (id) => {
-        let filterTasks = contextTasks.filter(data => {
-            return data.completedBy === "tm@gg.com"
-        })
-        API.acceptTasks(id).then(res => {
-            if (res.status === 200) {
-                console.log("Successful update of task");
-                M.toast({ html: "You Accepted the Task" });
-                updateContextTasks()
-                console.log(filterTasks)
-            } else {
-                console.log("Some error ocurred");
-            }
-        }).catch(err => {
-            console.log(err);
-        });
-    }
+const UserTaskBoard = (props) => {
 
     return (
         <ul className="collapsible">
-            {contextTasks.map(data => {
+            {props.data.map(data => {
                 return (
                     <li key={data._id}>
                         <div className="collapsible-header">
@@ -44,8 +20,6 @@ const TaskBoard = () => {
                             <h6>Task Expires: {data.taskExpires}</h6>
                             <h6>Status Value: {data.statusValue}</h6>
                             <h6>Accepted By: {data.completedBy}</h6>
-                            <a className="btn-floating btn-small waves-effect waves-light blue" href="#" onClick={(e) => {e.preventDefault()
-                                taskAccept(data._id)}}><i className="material-icons">add</i></a>
                         </div>
                     </li>
                 );
@@ -60,4 +34,4 @@ document.addEventListener('DOMContentLoaded', function () {
     M.Collapsible.init(elems);
 });
 
-export default TaskBoard;
+export default UserTaskBoard;

@@ -13,16 +13,19 @@ function App() {
   const [contextTasks, setContextTasks] = useState([])
 
   const updateContextTasks = () => {
+    const id = user._id
+    console.log(id)
     API.getTasks().then((res) => {
       console.log("Get All Updated Context Tasks");
       console.log(res.data);
       setContextTasks(res.data);
     });
-    API.getUser().then(res => {
-      console.log("update user context");
-      console.log(res.data);
-      setUser(res.data)
-    })
+    getUser();
+    // API.getUser(id).then(res => {
+    //   console.log("update user context");
+    //   console.log(res.data);
+    //   setUser(res.data)
+    // })
   }
 
   const getUser = () => {
@@ -47,14 +50,14 @@ function App() {
           <FuncContext.Provider value={updateContextTasks}>
             <div>
               <Nav />
-              <button className="btn waves-effect waves-light" type="submit" name="action" onClick={getUser}>Get User
+              {/* <button className="btn waves-effect waves-light" type="submit" name="action" onClick={getUser}>Get User
           <i className="material-icons right">send</i>
           </button>
           <div>
             {
               user ? (<h1>Hi @ {user.firstName} </h1>) : (null)
             }
-          </div>
+          </div> */}
               <Router />
             </div>
           </FuncContext.Provider>

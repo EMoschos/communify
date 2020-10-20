@@ -3,6 +3,7 @@ import M from 'materialize-css'
 import API from "../../utils/API"
 import Auth from "../../routes/Auth"
 import UserContext from "../../utils/UserContext"
+import "./style.css";
 
 function Nav() {
 
@@ -41,9 +42,9 @@ function Nav() {
 
   return (
     <header>
-      <nav className="grey" role="navigation">
+      <nav className="blue" role="navigation">
         <div className="nav-wrapper">
-          <a href="/" className="brand-logo">Logo</a>
+          <a href="/" className="brand-logo">Communify</a>
           <a href="/" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a>
           <ul className="right hide-on-med-and-down">
             {isLoggedInBtns()}

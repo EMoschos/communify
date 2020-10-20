@@ -1,22 +1,21 @@
 import React, { useState, useContext, useEffect } from "react";
 import API from "../../utils/API"
-import Auth from "../../routes/Auth"
 import UserContext from "../../utils/UserContext"
 import M from 'materialize-css'
 import FuncContext from "../../utils/FuncContext"
 
-function UpdateUser(props) {
+function UpdateUser() {
     const updateContextTasks = useContext(FuncContext)
     const user = useContext(UserContext)
-    console.log(user._id)
+
     const [updateUser, setUpdateUser] = useState(
         {
-            userID: "",
-            firstName: "",
-            lastName: "",
-            address: "",
-            skills: [],
-            experience: []
+            // userID: "",
+            // firstName: props.firstName,
+            // lastName: "",
+            // address: "",
+            // skills: [],
+            // experience: []
         }
     )
 
@@ -35,7 +34,12 @@ function UpdateUser(props) {
     //     console.log(user)
     // }, [])
 
-    console.log(updateUser)
+    const captureUserData = (e) => {
+        e.preventDefault()
+        let currentUserData = user
+        console.log(currentUserData)
+        setUpdateUser(currentUserData)
+    }
 
     const handleChange = (e) => {
         const { id, value } = e.target
@@ -47,23 +51,21 @@ function UpdateUser(props) {
 
     const handleUpdate = (e) => {
         e.preventDefault()
-        if (updateUser.firstName && updateUser.lastName) {
+        if (updateUser.firstName && updateUser.lastName && updateUser.address) {
             const id = user._id;
             const userChanges = {
                 "firstName": updateUser.firstName,
                 "lastName": updateUser.lastName,
-                "address": updateUser.email,
-                "skills": updateUser.skills,
-                "experience": updateUser.experience
+                "address": updateUser.address,
+                "skills": updateUser.skills.split(","),
+                "experience": updateUser.experience.split(",")
             }
             console.log(id)
             API.userUpdate(id, userChanges).then(res => {
-                console.log(res.data)
                 if (res.status === 200) {
                     console.log("Successful update of User");
                     M.toast({ html: "Successful update of task" });
                     updateContextTasks()
-                    //   window.location.replace("/Account");
                 } else {
                     console.log("Some error ocurred");
                 }
@@ -80,6 +82,9 @@ function UpdateUser(props) {
     return (
         <div className="row">
             <form className="col s12">
+                <button className="btn waves-effect waves-light" type="submit" name="action" onClick={captureUserData}>Populate User Info
+          <i className="material-icons right">get_app</i>
+                </button>
                 <div className="row">
                     <div className="input-field col s6">
                         <input

@@ -2,6 +2,9 @@ import axios from "axios";
 
 export default {
   // Gets the user with the given id
+  getUserId: function(id) {
+    return axios.get("/api/user/" + id);
+  },
   getUser: function() {
     return axios.get("/api/user/getUser");
   },
@@ -26,5 +29,11 @@ export default {
   },
   getTasks: function() {
     return axios.get("/api/task");
+  },
+  acceptTasks: function(id) {
+    return axios.put("/api/task/" + id);
+  },
+  getUserTasks: function(user) {
+    return axios.get("/api/task/user/" + user);
   },
 };

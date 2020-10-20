@@ -21,11 +21,29 @@ router
     db.Task.find({})
       .then(dbTask => {
         console.log("Task GET route")
-        console.log(dbTask)
         res.json(dbTask)
       })
       .catch(err => res.status(422).json(err));
-  });
+  })
+
+  router
+  .route("/:id")
+  .get(function (req, res) {
+    db.Task.findById(req.params.id)
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  })
+  .put(function (req, res) {
+    console.log(req.body)
+    db.Task.findOneAndUpdate({ _id: req.params.id }, { $set: { completedBy: req.user.email }}, { new: true })
+      .then(dbModel => {
+        console.log(dbModel)
+        res.json(dbModel)
+        }
+      )
+      .catch(err => res.status(422).json(err));
+  })
+  
 
 
 module.exports = router;
