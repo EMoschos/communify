@@ -1,8 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { useHistory } from "react-router-dom";
 import API from "../../utils/API"
 import Auth from "../../routes/Auth"
+import FuncContext from "../../utils/FuncContext"
 
 function LoginForm(props) {
+  const updateContextTasks = useContext(FuncContext)
+  let history = useHistory()
+
   const [loginUser, setLoginUser] = useState({
     email: "",
     password: ""
@@ -31,7 +36,8 @@ function LoginForm(props) {
           })
           console.log("Login of User")
           Auth.authenticateUser(res.data.email)
-          window.location.replace("/Account");
+          updateContextTasks()
+          history.push("/account")
         } else {
           console.log("Some error ocurred");
         }

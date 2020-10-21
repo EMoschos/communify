@@ -1,14 +1,18 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import M from 'materialize-css'
 import API from "../../utils/API"
 import Auth from "../../routes/Auth"
 import UserContext from "../../utils/UserContext"
+import FuncContext from "../../utils/FuncContext"
 import "./style.css";
 
 function Nav() {
-
+  const updateContextTasks = useContext(FuncContext)
   const user = useContext(UserContext)
+
+  let history = useHistory()
+
   console.log(user);
 
   const handleLogOut = (e) => {
@@ -18,7 +22,8 @@ function Nav() {
       if (res.status === 200) {
         console.log("React Logout")
         Auth.deauthenticateUser()
-        window.location.replace("/");
+        updateContextTasks()
+        history.push("/")
       } else {
         console.log("Some error ocurred");
       }
