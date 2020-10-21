@@ -6,6 +6,7 @@ import M from 'materialize-css'
 import UserContext from "../utils/UserContext"
 import TaskContext from "../utils/TaskContext"
 import UpdateUser from "../components/UpdateUser"
+import "./materializeJS"
 
 const Account = () => {
     const user = useContext(UserContext)
@@ -57,7 +58,7 @@ const Account = () => {
     // const [editUser, setEditUser] = useState(false)
 
     // const [allTasks, setAllTask] = useState([])
-    
+
     return (
         <div className="container">
             <div className="section">
@@ -136,13 +137,13 @@ const Account = () => {
 };
 
 
-document.addEventListener('DOMContentLoaded', function () {
-    var elems = document.querySelectorAll('.collapsible');
-    M.Collapsible.init(elems);
-    var elems1 = document.querySelectorAll('.modal');
-    M.Modal.init(elems1);
-    var elems2 = document.querySelectorAll('.tabs');
-    M.Tabs.init(elems2);
-});
+// document.addEventListener('DOMContentLoaded', function () {
+//     var elems = document.querySelectorAll('.collapsible');
+//     M.Collapsible.init(elems);
+//     var elems1 = document.querySelectorAll('.modal');
+//     M.Modal.init(elems1);
+//     var elems2 = document.querySelectorAll('.tabs');
+//     M.Tabs.init(elems2);
+// });
 
 export default Account;
