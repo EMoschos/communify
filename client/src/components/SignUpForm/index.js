@@ -44,7 +44,8 @@ function SignUpForm(props) {
           console.log("Successful Save of User")
           Auth.authenticateUser(res.data.email)
           updateContextTasks()
-          history.push("/account")
+          // history.push("/account")
+          window.location.href = "/account";
         } else {
           console.log("Some error ocurred");
         }

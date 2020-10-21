@@ -21,9 +21,11 @@ const Account = () => {
 
     let skillsToRender;
     if (user.skills) {
+        let index = 0;
         skillsToRender = user.skills.map((data) => {
             console.log(data)
-            return <div className="chip">
+            index ++;
+            return <div className="chip" key={index}>
                 {data} </div>
         })
     } else {
@@ -32,39 +34,27 @@ const Account = () => {
 
     let expToRender;
     if (user.experience) {
+        let index = 0;
+        index ++;
         expToRender = user.experience.map((data) => {
             console.log(data)
-            return <div className="chip">
+            return <div className="chip" key={index}>
                 {data} </div>
         })
     } else {
         expToRender = "Loading..."
     }
 
-    // function mapArr() {
-    //     user.skills.map((data) => {
-    //         console.log(data)
-    //         return <div className="chip">
-    //             {data} </div>
-    //     })
-    // }
-    // let currentUserData = {}
-    //     const captureUserData = () => {
-    //         currentUserData = user
-    //         console.log(currentUserData)
-    //     }
-
-    // const [editUser, setEditUser] = useState(false)
-
-    // const [allTasks, setAllTask] = useState([])
-    // document.addEventListener('DOMContentLoaded', function () {
-    //     var elems = document.querySelectorAll('.collapsible');
-    //     M.Collapsible.init(elems);
-    //     var elems1 = document.querySelectorAll('.modal');
-    //     M.Modal.init(elems1);
-    //     var elems2 = document.querySelectorAll('.tabs');
-    //     M.Tabs.init(elems2);
-    // });
+    // useEffect(()=>{
+    //     document.addEventListener('DOMContentLoaded', function () {
+    //         var elems = document.querySelectorAll('.collapsible');
+    //         M.Collapsible.init(elems);
+    //         var elems1 = document.querySelectorAll('.modal');
+    //         M.Modal.init(elems1);
+    //         var elems2 = document.querySelectorAll('.tabs');
+    //         M.Tabs.init(elems2);
+    //     });
+    // })
 
     return (
         <div className="container">
@@ -91,17 +81,10 @@ const Account = () => {
                             <div className="card-content grey lighten-4">
                                 <div id="test4">
                                     <div className="right">
-                                        <a className="waves-effect waves-light btn modal-trigger" href="#modal2"><i class="material-icons">create</i></a>
+                                        <a className="waves-effect waves-light btn modal-trigger" href="#modal2"><i className="material-icons">create</i></a>
                                         <div id="modal2" className="modal">
                                             <div className="modal-content">
-                                                <UpdateUser
-                                                // id={user._id}
-                                                // firstName={currentUserData.firstName}
-                                                // lastName={user.lastName}
-                                                // address="Need to set"
-                                                // skills={user.skills}
-                                                // experience={user.experience}
-                                                />
+                                                <UpdateUser />
                                             </div>
                                         </div>
                                     </div>
@@ -139,28 +122,18 @@ const Account = () => {
                     </div>
                 </div>
             </div>
-            <script>
-                {`${document.addEventListener('DOMContentLoaded', function () {
-                    var elems = document.querySelectorAll('.collapsible');
-                    M.Collapsible.init(elems);
-                    var elems1 = document.querySelectorAll('.modal');
-                    M.Modal.init(elems1);
-                    var elems2 = document.querySelectorAll('.tabs');
-                    M.Tabs.init(elems2);
-                })}`}
-            </script>
         </div>
     );
 };
 
 
-// document.addEventListener('DOMContentLoaded', function () {
-//     var elems = document.querySelectorAll('.collapsible');
-//     M.Collapsible.init(elems);
-//     var elems1 = document.querySelectorAll('.modal');
-//     M.Modal.init(elems1);
-//     var elems2 = document.querySelectorAll('.tabs');
-//     M.Tabs.init(elems2);
-// });
+document.addEventListener('DOMContentLoaded', function () {
+    var elems = document.querySelectorAll('.collapsible');
+    M.Collapsible.init(elems);
+    var elems1 = document.querySelectorAll('.modal');
+    M.Modal.init(elems1);
+    var elems2 = document.querySelectorAll('.tabs');
+    M.Tabs.init(elems2);
+});
 
 export default Account;
