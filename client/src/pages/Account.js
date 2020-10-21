@@ -11,39 +11,76 @@ const Account = () => {
     const user = useContext(UserContext)
     const contextTasks = useContext(TaskContext)
 
-    let filterCompletedByTasks = contextTasks.filter(data => {
-        return data.completedBy === user.email
-    })
-
-    let filterCreatedByTasks = contextTasks.filter(data => {
-        return data.createdBy === user.email
-    })
-
+    let filterCompletedByTasks
+    let filterCreatedByTasks
     let skillsToRender;
-    if (user.skills) {
-        let index = 0;
-        skillsToRender = user.skills.map((data) => {
-            console.log(data)
-            index ++;
-            return <div className="chip" key={index}>
-                {data} </div>
-        })
-    } else {
-        skillsToRender = "Loading..."
-    }
-
     let expToRender;
-    if (user.experience) {
-        let index = 0;
-        index ++;
-        expToRender = user.experience.map((data) => {
-            console.log(data)
-            return <div className="chip" key={index}>
-                {data} </div>
+
+    if (contextTasks) {
+        filterCompletedByTasks = contextTasks.filter(data => {
+            return data.completedBy === user.email
         })
-    } else {
-        expToRender = "Loading..."
+
+        filterCreatedByTasks = contextTasks.filter(data => {
+            return data.createdBy === user.email
+        })
+        if (user.skills) {
+            let index = 0;
+            skillsToRender = user.skills.map((data) => {
+                console.log(data)
+                index++;
+                return <div className="chip" key={index}>
+                    {data} </div>
+            })
+        } else {
+            skillsToRender = "Loading..."
+        }
+
+        if (user.experience) {
+            let index = 0;
+            index++;
+            expToRender = user.experience.map((data) => {
+                console.log(data)
+                return <div className="chip" key={index}>
+                    {data} </div>
+            })
+        } else {
+            expToRender = "Loading..."
+        }
     }
+    // let filterCompletedByTasks = contextTasks.filter(data => {
+    //     return data.completedBy === user.email
+    // })
+
+    // let filterCreatedByTasks = contextTasks.filter(data => {
+    //     return data.createdBy === user.email
+    // })
+
+    // let skillsToRender;
+    // if (user.skills) {
+    //     let index = 0;
+    //     skillsToRender = user.skills.map((data) => {
+    //         console.log(data)
+    //         index ++;
+    //         return <div className="chip" key={index}>
+    //             {data} </div>
+    //     })
+    // } else {
+    //     skillsToRender = "Loading..."
+    // }
+
+    // let expToRender;
+    // if (user.experience) {
+    //     let index = 0;
+    //     index ++;
+    //     expToRender = user.experience.map((data) => {
+    //         console.log(data)
+    //         return <div className="chip" key={index}>
+    //             {data} </div>
+    //     })
+    // } else {
+    //     expToRender = "Loading..."
+    // }
 
     // useEffect(()=>{
     //     document.addEventListener('DOMContentLoaded', function () {
