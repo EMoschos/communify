@@ -1,9 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { useHistory } from "react-router-dom";
 import API from "../../utils/API"
 import Auth from "../../routes/Auth"
+import FuncContext from "../../utils/FuncContext"
 
 
 function SignUpForm(props) {
+  const updateContextTasks = useContext(FuncContext)
+  let history = useHistory()
+
   const [signUpUser, setSignUpUser] = useState({
     firstName: "",
     lastName: "",
@@ -38,7 +43,8 @@ function SignUpForm(props) {
           })
           console.log("Successful Save of User")
           Auth.authenticateUser(res.data.email)
-          window.location.replace("/Account");
+          updateContextTasks()
+          history.push("/account")
         } else {
           console.log("Some error ocurred");
         }

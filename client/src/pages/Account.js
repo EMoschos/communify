@@ -57,16 +57,7 @@ const Account = () => {
     // const [editUser, setEditUser] = useState(false)
 
     // const [allTasks, setAllTask] = useState([])
-
-    // useEffect(() => {
-    //     API.getTasks().then((res) => {
-    //         console.log("Get All Tasks");
-    //         console.log(res);
-    //         console.log(res.data);
-    //         setAllTask(res.data);  
-    //     });
-    // }, []);
-
+    
     return (
         <div className="container">
             <div className="section">
