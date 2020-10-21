@@ -30,13 +30,13 @@ function Nav() {
   const isLoggedInBtns = () => {
     if (user) {
       return <>
-        <li><Link href="/account">Account: {user.email}</Link></li>
-        <li><Link href="/logout" onClick={handleLogOut}>LogOut</Link></li>
+        <li><Link to="/account">Account: {user.email}</Link></li>
+        <li><Link to="/logout" onClick={handleLogOut}>LogOut</Link></li>
         </>
     } else {
       return <>
-        <li><Link href="/signup">Signup</Link></li>
-        <li><Link href="/login">Login</Link></li>
+        <li><Link to="/signup">Signup</Link></li>
+        <li><Link to="/login">Login</Link></li>
         </>
     }
   }
