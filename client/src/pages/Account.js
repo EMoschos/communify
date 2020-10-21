@@ -17,6 +17,7 @@ const Account = () => {
     let expToRender;
 
     if (contextTasks) {
+        console.log(contextTasks)
         filterCompletedByTasks = contextTasks.filter(data => {
             return data.completedBy === user.email
         })
