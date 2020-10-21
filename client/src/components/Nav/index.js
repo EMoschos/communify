@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import M from 'materialize-css'
 import API from "../../utils/API"
 import Auth from "../../routes/Auth"
@@ -29,13 +30,13 @@ function Nav() {
   const isLoggedInBtns = () => {
     if (user) {
       return <>
-        <li><a href="/account">Account: {user.email}</a></li>
-        <li><a href="/logout" onClick={handleLogOut}>LogOut</a></li>
+        <li><Link href="/account">Account: {user.email}</Link></li>
+        <li><Link href="/logout" onClick={handleLogOut}>LogOut</Link></li>
         </>
     } else {
       return <>
-        <li><a href="/signup">Signup</a></li>
-        <li><a href="/login">Login</a></li>
+        <li><Link href="/signup">Signup</Link></li>
+        <li><Link href="/login">Login</Link></li>
         </>
     }
   }
