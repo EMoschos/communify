@@ -32,8 +32,5 @@ export default {
   },
   acceptTasks: function(id) {
     return axios.put("/api/task/" + id);
-  },
-  getUserTasks: function(user) {
-    return axios.get("/api/task/user/" + user);
-  },
+  }
 };

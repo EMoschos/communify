@@ -60,7 +60,7 @@ const Home = () => {
         </div>
         <div className="parallax"><img src="./img/handbg.jpg" alt="Unsplashed background img 2" /></div>
       </div>
-      <div className="card-panel purple">
+      <div className="card-panel">
         <h3 className="center-align blue text-white">TASKBOARD</h3>
         <TaskBoard />
       </div>
