@@ -57,14 +57,14 @@ const Account = () => {
     // const [editUser, setEditUser] = useState(false)
 
     // const [allTasks, setAllTask] = useState([])
-    document.addEventListener('DOMContentLoaded', function () {
-        var elems = document.querySelectorAll('.collapsible');
-        M.Collapsible.init(elems);
-        var elems1 = document.querySelectorAll('.modal');
-        M.Modal.init(elems1);
-        var elems2 = document.querySelectorAll('.tabs');
-        M.Tabs.init(elems2);
-    });
+    // document.addEventListener('DOMContentLoaded', function () {
+    //     var elems = document.querySelectorAll('.collapsible');
+    //     M.Collapsible.init(elems);
+    //     var elems1 = document.querySelectorAll('.modal');
+    //     M.Modal.init(elems1);
+    //     var elems2 = document.querySelectorAll('.tabs');
+    //     M.Tabs.init(elems2);
+    // });
 
     return (
         <div className="container">
@@ -139,7 +139,18 @@ const Account = () => {
                     </div>
                 </div>
             </div>
+            <script>
+            {document.addEventListener('DOMContentLoaded', function () {
+    var elems = document.querySelectorAll('.collapsible');
+    M.Collapsible.init(elems);
+    var elems1 = document.querySelectorAll('.modal');
+    M.Modal.init(elems1);
+    var elems2 = document.querySelectorAll('.tabs');
+    M.Tabs.init(elems2);
+})}
+            </script>
         </div>
+        
     );
 };
 
