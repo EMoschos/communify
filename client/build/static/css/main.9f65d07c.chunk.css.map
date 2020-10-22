@@ -1,0 +1,1 @@
+{"version":3,"sources":["style.css"],"names":[],"mappings":"AAAA,SACI,gBACJ,CAFA,UACI,iBACJ,CAEA,MACI,kBACJ","file":"main.9f65d07c.chunk.css","sourcesContent":[".taskList{\n    font-style: italic;\n}\n\n.bold {\n    font-weight: bolder;\n}"]}
