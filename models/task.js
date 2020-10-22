@@ -48,7 +48,6 @@ const TaskSchema = new Schema({
 
     taskExpires: {
         type: Date,
-        default: "No date set",
     },
 
     taskStatus: {

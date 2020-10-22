@@ -2,10 +2,7 @@ import React, { useEffect } from "react";
 import M from 'materialize-css'
 import CreateTask from "../components/TaskCreate"
 import TaskBoard from "../components/TaskBoard";
-import Modal1 from "../components/Modal"
 import { Modal, Button } from 'react-materialize';
-
-const trigger = <Button>Open Modal</Button>;
 
 function Home() {
   const trigger = <Button>Open Modal</Button>;
@@ -22,11 +19,10 @@ function Home() {
 
   return (
     <>
-      <Modal1 data={TaskBoard} />
-      <Modal header="Modal Header" trigger={trigger}>
+      <Modal header="Update User" trigger={trigger}>
         <CreateTask />
       </Modal>
-      <Modal header="Modal Header" trigger={trigger}>
+      <Modal header="TaskBoard" trigger={trigger}>
         <TaskBoard />
       </Modal>
       <div className="parallax-container valign-wrapper">
@@ -85,12 +81,6 @@ function Home() {
       </div>
       <div className="card-panel">
         <h3 className="center-align blue text-white">TASKBOARD</h3>
-
-      </div>
-      <div id="modal1" className="modal">
-        <div className="modal-content">
-          <CreateTask />
-        </div>
       </div>
     </>
   );
