@@ -102,7 +102,10 @@ const Account = () => {
 
                             </Tabs>
                             <div className="card-action blue-grey lighten-2">
-                                <Modal header="Create Task" trigger={<Button>Create Task</Button>}>
+                                <Modal 
+                                header="Create Task" 
+                                trigger={<Button>Create Task</Button>}
+                                >
                                     <TaskCreate />
                                 </Modal>
                             </div>
