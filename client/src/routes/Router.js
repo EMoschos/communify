@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Switch, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import Home from "../pages/Home";
 import Account from "../pages/Account";
 import NoMatch from "../pages/NoMatch";
@@ -10,14 +10,16 @@ import Auth from "../routes/Auth"
 function Router(props) {
 
     return (
-        <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/home" component={Home} />
-            <Route exact path="/signup" component={SignUpForm} />
-            <PrivateRoute exact path="/account" component={Account} />
-            <Route exact path="/login" component={Login} />
-            <Route path="*" component={NoMatch} />
-        </Switch>
+        <Router>
+            <Switch>
+                <Route exact path="/" component={Home} />
+                <Route exact path="/home" component={Home} />
+                <Route exact path="/signup" component={SignUpForm} />
+                <PrivateRoute exact path="/account" component={Account} />
+                <Route exact path="/login" component={Login} />
+                <Route path="*" component={NoMatch} />
+            </Switch>
+        </Router>
     );
 }
 
