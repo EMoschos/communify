@@ -19,7 +19,7 @@ function Home() {
 
   return (
     <>
-    <Modal/>
+    <Modal data={TaskBoard}/>
       <div className="parallax-container valign-wrapper">
         <div className="section no-pad-bot">
           <div className="container">
