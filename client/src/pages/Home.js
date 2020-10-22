@@ -2,24 +2,33 @@ import React, { useEffect } from "react";
 import M from 'materialize-css'
 import CreateTask from "../components/TaskCreate"
 import TaskBoard from "../components/TaskBoard";
-import Modal from "../components/Modal"
+import Modal1 from "../components/Modal"
+import { Modal, Button } from 'react-materialize';
+
+const trigger = <Button>Open Modal</Button>;
 
 function Home() {
-
-  useEffect(()=>{
-    document.addEventListener('DOMContentLoaded', function () {
-      var elems = document.querySelectorAll('.slider');
-      M.Slider.init(elems);
-      var elems1 = document.querySelectorAll('.modal');
-      M.Modal.init(elems1);
-      var elems2 = document.querySelectorAll('.parallax');
-      M.Parallax.init(elems2);
-    });
-  }, [])
+  const trigger = <Button>Open Modal</Button>;
+  // useEffect(() => {
+  //   document.addEventListener('DOMContentLoaded', function () {
+  //     var elems = document.querySelectorAll('.slider');
+  //     M.Slider.init(elems);
+  //     var elems1 = document.querySelectorAll('.modal');
+  //     M.Modal.init(elems1);
+  //     var elems2 = document.querySelectorAll('.parallax');
+  //     M.Parallax.init(elems2);
+  //   });
+  // }, [])
 
   return (
     <>
-    <Modal data={TaskBoard}/>
+      <Modal1 data={TaskBoard} />
+      <Modal header="Modal Header" trigger={trigger}>
+        <CreateTask />
+      </Modal>
+      <Modal header="Modal Header" trigger={trigger}>
+        <TaskBoard />
+      </Modal>
       <div className="parallax-container valign-wrapper">
         <div className="section no-pad-bot">
           <div className="container">
@@ -76,7 +85,7 @@ function Home() {
       </div>
       <div className="card-panel">
         <h3 className="center-align blue text-white">TASKBOARD</h3>
-        <TaskBoard />
+
       </div>
       <div id="modal1" className="modal">
         <div className="modal-content">
