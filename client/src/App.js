@@ -50,14 +50,6 @@ function App() {
           <FuncContext.Provider value={updateContextTasks}>
             <div>
               <Nav />
-              {/* <button className="btn waves-effect waves-light" type="submit" name="action" onClick={getUser}>Get User
-          <i className="material-icons right">send</i>
-          </button>
-          <div>
-            {
-              user ? (<h1>Hi @ {user.firstName} </h1>) : (null)
-            }
-          </div> */}
               <Router />
             </div>
           </FuncContext.Provider>

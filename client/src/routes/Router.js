@@ -16,7 +16,7 @@ function Router(props) {
             <Route exact path="/signup" component={SignUpForm} />
             <PrivateRoute exact path="/account" component={Account} />
             <Route exact path="/login" component={Login} />
-            <Route component={NoMatch} />
+            <Route path="*" component={NoMatch} />
         </Switch>
     );
 }
