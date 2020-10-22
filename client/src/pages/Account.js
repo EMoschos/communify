@@ -51,8 +51,8 @@ const Account = () => {
         }
     }
 
-    const editTrigger = <Button><i className="material-icons">create</i></Button>;
-    const createTrigger = <Button>Create Task</Button>;
+    // const editTrigger = <Button><i className="material-icons">create</i></Button>;
+    // const createTrigger = <Button>Create Task</Button>;
 
     return (
         <div className="container">
@@ -73,7 +73,7 @@ const Account = () => {
                                 <Tab title="Profile" idx="tab-1">
                                     <div className="card-content grey lighten-4">
                                         <div className="right">
-                                            <Modal header="Update User" trigger={editTrigger}>
+                                            <Modal header="Update User" trigger={<Button><i className="material-icons">create</i></Button>}>
                                                 <UpdateUser />
                                             </Modal>
                                         </div>
@@ -102,7 +102,7 @@ const Account = () => {
 
                             </Tabs>
                             <div className="card-action blue-grey lighten-2">
-                                <Modal header="Create Task" trigger={createTrigger}>
+                                <Modal header="Create Task" trigger={<Button>Create Task</Button>}>
                                     <TaskCreate />
                                 </Modal>
                             </div>
@@ -121,15 +121,5 @@ const Account = () => {
         </div >
     );
 };
-
-
-// document.addEventListener('DOMContentLoaded', function () {
-//     var elems = document.querySelectorAll('.collapsible');
-//     M.Collapsible.init(elems);
-//     var elems1 = document.querySelectorAll('.modal');
-//     M.Modal.init(elems1);
-//     var elems2 = document.querySelectorAll('.tabs');
-//     M.Tabs.init(elems2);
-// });
 
 export default Account;

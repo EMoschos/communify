@@ -15,7 +15,7 @@ function TaskCreate() {
         description: "",
         category: "",
         location: "",
-        taskExpires: new Date().toDateString(),
+        taskExpires: "",
     })
 
     const handleChange = (e) => {

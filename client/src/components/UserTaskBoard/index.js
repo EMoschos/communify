@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import M from 'materialize-css'
 import "./style.css";
 import { Collapsible, CollapsibleItem } from 'react-materialize';
 
@@ -10,7 +9,7 @@ const UserTaskBoard = (props) => {
         <Collapsible>
             {props.data.map(data => {
                 return (
-                    <CollapsibleItem key={data._id} header={`TITLE: ${data.title}`}>
+                    <CollapsibleItem key={data._id} header={<h6><span className="bold">Title:</span> {data.title}</h6>}>
                         <h6><span className="bold">Description:</span> <span className="taskList">{data.description}</span></h6>
                         <h6><span className="bold">Creator:</span> <span className="taskList">{data.createdBy}</span></h6>
                         <h6><span className="bold">Location:</span> <span className="taskList">{data.location}</span></h6>

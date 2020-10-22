@@ -4,6 +4,7 @@ import TaskContext from "../../utils/TaskContext"
 import "./style.css";
 import API from "../../utils/API"
 import FuncContext from "../../utils/FuncContext"
+import { Collapsible, CollapsibleItem } from 'react-materialize';
 
 const TaskBoard = () => {
 
@@ -29,35 +30,29 @@ const TaskBoard = () => {
     }
 
     return (
-        <ul className="collapsible">
+        <Collapsible>
             {contextTasks.map(data => {
                 return (
-                    <li key={data._id}>
-                        <div className="collapsible-header">
-                            <p className="listPad">TITLE: {data.title}</p>
-                            <p className="listPad center-align">DESCRIPTION: {data.description}</p>
-                            <p className="listPad right-align"> CREATOR: {data.createdBy}</p>
-                        </div>
-                        <div className="collapsible-body">
-                            <h6>Location: {data.location}</h6>
-                            <h6>Task Status: {data.taskStatus}</h6>
-                            <h6>Task Expires: {data.taskExpires}</h6>
-                            <h6>Status Value: {data.statusValue}</h6>
-                            <h6>Accepted By: {data.completedBy}</h6>
-                            <a className="btn-floating btn-small waves-effect waves-light blue" href="#" onClick={(e) => {e.preventDefault()
+                    <CollapsibleItem key={data._id} header={<h6><span className="bold">Title:</span> {data.title}</h6>}>
+                        <h6><span className="bold">Description:</span> <span className="taskList">{data.description}</span></h6>
+                        <h6><span className="bold">Creator:</span> <span className="taskList">{data.createdBy}</span></h6>
+                        <h6><span className="bold">Location:</span> <span className="taskList">{data.location}</span></h6>
+                        <h6><span className="bold">Task Status:</span> <span className="taskList">{data.taskStatus}</span></h6>
+                        <h6><span className="bold">Task Expires:</span> <span className="taskList">{data.taskExpires}</span></h6>
+                        <h6><span className="bold">Status Value: </span> <span className="taskList">{data.statusValue}</span></h6>
+                        <h6><span className="bold">Accepted By: </span> <span className="taskList">{data.completedBy}</span></h6>
+                        <a className="btn-floating btn-small waves-effect waves-light blue" href="#" onClick={(e) => {e.preventDefault()
                                 taskAccept(data._id)}}><i className="material-icons">add</i></a>
-                        </div>
-                    </li>
-                );
+                    </CollapsibleItem>
+                    );
             })}
-
-        </ul>
+        </Collapsible>
     );
 };
 
-document.addEventListener('DOMContentLoaded', function () {
-    var elems = document.querySelectorAll('.collapsible');
-    M.Collapsible.init(elems);
-});
+// document.addEventListener('DOMContentLoaded', function () {
+//     var elems = document.querySelectorAll('.collapsible');
+//     M.Collapsible.init(elems);
+// });
 
 export default TaskBoard;
