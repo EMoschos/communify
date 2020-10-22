@@ -2,6 +2,7 @@ import React from "react";
 import M from 'materialize-css'
 import TaskBoard from "../components/TaskBoard";
 import { Slide, Slider, Caption, Parallax } from 'react-materialize';
+import "./style.css";
 
 function Home() {
 
@@ -30,7 +31,7 @@ function Home() {
                 </Slide>
                 <Slide image={<img alt="" src="./img/volunt2.jpg" />}>
                   <Caption placement="left">
-                    <h3>
+                    <h3 className="light black-text amaticFont">
                       Left Aligned Caption
                 </h3>
                     <h5 className="light grey-text text-lighten-3">
@@ -40,7 +41,7 @@ function Home() {
                 </Slide>
                 <Slide image={<img alt="" src="./img/volunt3.jpg" />}>
                   <Caption placement="right">
-                    <h3>
+                    <h3 className="light grey-text text-darken-3 amaticFont">
                       Right Aligned Caption
                     </h3>
                     <h5 className="light grey-text text-lighten-3">
@@ -50,10 +51,10 @@ function Home() {
                 </Slide>
                 <Slide image={<img alt="" src="./img/volunt4.jpg" />}>
                   <Caption placement="center">
-                    <h3>
+                    <h3 className="light grey-text text-darken-3 amaticFont">
                       This is our big Tagline!
                     </h3>
-                    <h5 className="light grey-text text-lighten-3">
+                    <h5 className="light grey-text text-darken-3 rightFont">
                       Here's our small slogan.
                     </h5>
                   </Caption>
@@ -70,7 +71,7 @@ function Home() {
         />
         <div className="section white">
           <div className="card-panel">
-            <h3 className="center-align blue text-white">TASKBOARD</h3>
+            <h3 className="center-align blue white-text bungeeFont">TASKBOARD</h3>
             <TaskBoard />
           </div>
         </div>
