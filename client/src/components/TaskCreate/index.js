@@ -50,12 +50,12 @@ function TaskCreate() {
                     console.log("Successful Save of task")
                     M.toast({ html: "Successful Save of task" })
                 } else {
-                    console.log("Some error ocurred");
+                    console.log("Some error ocurred in API");
                 }
             })
                 .catch(err => {
                     console.log(err);
-                    console.log("Some error ocurred")
+                    console.log("Some error ocurred in Catch")
                     M.toast({ html: "Invalid inputs: Ensure all data is entered correctly" })
                 });
         } else {
