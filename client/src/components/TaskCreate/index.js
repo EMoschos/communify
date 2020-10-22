@@ -36,6 +36,7 @@ function TaskCreate() {
                 "taskExpires": newTask.taskExpires,
                 "createdBy": Auth.getToken()
             }
+            console.log(newTask)
             API.createTask(taskData).then(res => {
                 console.log(res.data)
                 if (res.status === 200) {

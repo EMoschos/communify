@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useContext } from "react";
-import TaskCreate from "../components/TaskCreate"
-// import API from "../utils/API"
+import TaskCreate from "../components/TaskCreate";
+// import API from "../utils/API";
 import UserTaskBoard from "../components/UserTaskBoard";
-import M from 'materialize-css'
-import UserContext from "../utils/UserContext"
-import TaskContext from "../utils/TaskContext"
-import UpdateUser from "../components/UpdateUser"
+import M from 'materialize-css';
+import UserContext from "../utils/UserContext";
+import TaskContext from "../utils/TaskContext";
+import UpdateUser from "../components/UpdateUser";
+import { Tabs, Tab } from "react-materialize";
 
 const Account = () => {
     const user = useContext(UserContext)
@@ -109,6 +110,41 @@ const Account = () => {
                                 <p><a href="#" className="yellow-text">Status Level: {user.statusLevel}</a></p>
                                 <p><a href="#" className="yellow-text">Status Points: {user.statusPoints}</a></p>
                             </div>
+                            <Tabs>
+                                <Tab title="Profile">
+                                    <div className="card-content grey lighten-4">
+                                        <div className="right">
+                                            <a className="waves-effect waves-light btn modal-trigger" href="#modal2"><i className="material-icons">create</i></a>
+                                            <div id="modal2" className="modal">
+                                                <div className="modal-content">
+                                                    <UpdateUser />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <h6>Full Name </h6>
+                                        <p>{user.firstName} {user.lastName}</p>
+                                        <h6>e-Mail: </h6>
+                                        <p>{user.email}</p>
+                                        <h6>Address: </h6>
+                                        <p>{user.address}</p>
+                                        <h6>Skills:</h6>
+                                        {skillsToRender}
+                                        <h6>Experience: </h6>
+                                        {expToRender}
+                                    </div>
+                                </Tab>
+                                <Tab title="Accepted Tasks">
+                                    <div className="card-content grey lighten-4">
+                                        <UserTaskBoard data={filterCompletedByTasks} />
+                                    </div>
+                                </Tab>
+                                <Tab title="Created Tasks">
+                                    <div className="card-content grey lighten-4">
+                                        <UserTaskBoard data={filterCreatedByTasks} />
+                                    </div>
+                                </Tab>
+
+                            </Tabs>
                             <div className="card-tabs">
                                 <ul className="tabs tabs-fixed-width">
                                     <li className="tab"><a className="active" href="#test4">Profile</a></li>
@@ -159,8 +195,8 @@ const Account = () => {
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
+            </div >
+        </div >
     );
 };
 
