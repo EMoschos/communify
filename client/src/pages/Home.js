@@ -21,7 +21,7 @@ function Home() {
               >
                 <Slide image={<img alt="" src="./img/volunt1.png" />}>
                   <Caption placement="center">
-                    <h3>
+                    <h3 className="light grey-text text-darken-3 z-depth-4">
                       This is our big Tagline!
                 </h3>
                     <h5 className="light grey-text text-lighten-3">
@@ -30,7 +30,7 @@ function Home() {
                   </Caption>
                 </Slide>
                 <Slide image={<img alt="" src="./img/volunt2.jpg" />}>
-                  <Caption placement="left">
+                  <Caption placement="left" className="z-depth-4">
                     <h3 className="light black-text amaticFont">
                       Left Aligned Caption
                 </h3>
@@ -41,10 +41,10 @@ function Home() {
                 </Slide>
                 <Slide image={<img alt="" src="./img/volunt3.jpg" />}>
                   <Caption placement="right">
-                    <h3 className="light grey-text text-darken-3 amaticFont">
+                    <h3 className="light grey-text text-darken-3 amaticFont z-depth-4">
                       Right Aligned Caption
                     </h3>
-                    <h5 className="light grey-text text-lighten-3">
+                    <h5 className="light grey-text text-lighten-3 z-depth-4">
                       Here's our small slogan.
                     </h5>
                   </Caption>
