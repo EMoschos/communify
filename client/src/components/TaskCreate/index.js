@@ -37,6 +37,7 @@ function TaskCreate() {
                 "createdBy": Auth.getToken()
             }
             console.log(newTask)
+            console.log(taskData)
             API.createTask(taskData).then(res => {
                 console.log(res.data)
                 if (res.status === 200) {
