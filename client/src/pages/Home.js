@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import M from 'materialize-css'
 import CreateTask from "../components/TaskCreate"
 import TaskBoard from "../components/TaskBoard";
+import Modal from "../components/Modal"
 
 function Home() {
 
@@ -18,6 +19,7 @@ function Home() {
 
   return (
     <>
+    <Modal/>
       <div className="parallax-container valign-wrapper">
         <div className="section no-pad-bot">
           <div className="container">
