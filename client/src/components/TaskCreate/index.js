@@ -1,8 +1,9 @@
 import React, { useState, useContext } from "react";
 import API from "../../utils/API"
 import Auth from "../../routes/Auth"
-import M from 'materialize-css'
+import M, { Datepicker } from 'materialize-css'
 import FuncContext from "../../utils/FuncContext"
+import { DatePicker, Select } from 'react-materialize';
 
 
 function TaskCreate() {
@@ -13,7 +14,8 @@ function TaskCreate() {
         title: "",
         description: "",
         category: "",
-        location: ""
+        location: "",
+        taskExpires: new Date().toDateString(),
     })
 
     const handleChange = (e) => {
@@ -68,19 +70,20 @@ function TaskCreate() {
     }
 
     const datePicker = (date) => {
-        console.log(date)
+        console.log(date.toDateString())
+        date = date.toDateString()
         setNewTask(task => ({ ...task, taskExpires: date }))
     }
 
     document.addEventListener('DOMContentLoaded', function () {
-        const elems = document.querySelectorAll('.datepicker');
+        // const elems = document.querySelectorAll('.datepicker');
         const elems1 = document.querySelectorAll('select');
         M.FormSelect.init(elems1);
-        M.Datepicker.init(elems, {
-            container: "body",
-            format: "dd-mm-yyyy",
-            onSelect: datePicker
-        })
+        // M.Datepicker.init(elems, {
+        //     container: "body",
+        //     format: "dd-mm-yyyy",
+        //     onSelect: datePicker
+        // })
     });
 
     return (
@@ -124,30 +127,25 @@ function TaskCreate() {
                     </div>
                 </div>
                 <div className="row">
-                    <div className="input-field col s6">
-                        <input
-                            placeholder="Expiry Date"
-                            id="taskExpires"
-                            type="text"
-                            className="datepicker"
-                        />
-                        <label htmlFor="taskExpires">Task Expires</label>
-                    </div>
-                    <div className="input-field col s6">
-                        <select
+                    <DatePicker
+                    label="Task Expiry Date"
+                        placeholder="Expiry Date"
+                        id="taskExpires"
+                        value={newTask.taskExpires}
+                        onChange={datePicker}
+                    />
+                        <Select label="Task Category"
                             placeholder="This task category is"
                             id="category"
                             type="select"
                             value={newTask.category}
                             onChange={handleChange}
                         >
-                            <option value="" disabled>Choose your option</option>
+                            <option value="" disabled>Choose Category</option>
                             <option value="Physical">Physical</option>
                             <option value="Education">Education</option>
                             <option value="IT">IT</option>
-                        </select>
-                        <label>Category</label>
-                    </div>
+                        </Select>
                 </div>
                 <div className="row">
                     <button className="btn waves-effect waves-light" type="submit" name="action" onClick={handleTaskCreate}>Submit

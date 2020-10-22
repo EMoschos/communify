@@ -19,21 +19,6 @@ function UpdateUser() {
         }
     )
 
-    // useEffect(() => {
-    //     setUpdateUser(
-    //         {
-    //         userID: user._id,
-    //         firstName: user.firstName,
-    //         lastName: user.lastName,
-    //         address: user.address,
-    //         skills: user.skills,
-    //         experience: user.experience
-    //     }
-    //     )
-    //     console.log("Running use Effect")
-    //     console.log(user)
-    // }, [])
-
     const captureUserData = (e) => {
         e.preventDefault()
         let currentUserData = user
@@ -64,17 +49,20 @@ function UpdateUser() {
             API.userUpdate(id, userChanges).then(res => {
                 if (res.status === 200) {
                     console.log("Successful update of User");
-                    M.toast({ html: "Successful update of task" });
+                    M.toast({ html: "Successful update of User"});
                     updateContextTasks()
                 } else {
                     console.log("Some error ocurred");
+                    M.toast({ html: "Did not update server error occurred"});
                 }
             })
                 .catch(err => {
                     console.log(err);
+                    M.toast({ html: "Did not update server error occurred or invalid inputs"});
                 });
         } else {
-            console.log('Please enter valid username and password')
+            console.log("Please enter valid username and password")
+            M.toast({ html: "Please enter valid inputs"});
         }
 
     }
@@ -88,64 +76,59 @@ function UpdateUser() {
                 <div className="row">
                     <div className="input-field col s6">
                         <input
-                            placeholder="i.e. John"
+                            placeholder="First Name: e.g. John"
                             id="firstName"
                             type="text"
                             className="validate"
                             value={updateUser.firstName}
                             onChange={handleChange}
                         />
-                        <label htmlFor="firstName">First Name</label>
                     </div>
                     <div className="input-field col s6">
                         <input
-                            placeholder="i.e. Smith"
+                            placeholder="Last Name: e.g. Smith"
                             id="lastName"
                             type="text"
                             className="validate"
                             value={updateUser.lastName}
                             onChange={handleChange}
                         />
-                        <label htmlFor="lastName">Last Name</label>
                     </div>
                 </div>
                 <div className="row">
                     <div className="input-field col s12">
                         <input
-                            placeholder="57, Example drive, Sometown, Some State"
+                            placeholder="Address: e.g. 57, Example drive, Sometown, Some State"
                             id="address"
                             type="text"
                             className="validate"
                             value={updateUser.address}
                             onChange={handleChange}
                         />
-                        <label htmlFor="address">Address</label>
                     </div>
                 </div>
                 <div className="row">
                     <div className="input-field col s12">
                         <input
-                            placeholder="Wood work, carpentary"
+                            placeholder="Skills: e.g Wood work, carpentary"
                             id="skills"
                             type="text"
                             className="validate"
                             value={updateUser.skills}
                             onChange={handleChange}
                         />
-                        <label htmlFor="skills">Skills</label>
                     </div>
                 </div>
                 <div className="row">
                     <div className="input-field col s12">
                         <input
-                            placeholder="Worked at Joe's builders"
+                            placeholder="Experience: e.g. Worked at Joe's builders"
                             id="experience"
                             type="text"
                             className="validate"
                             value={updateUser.experience}
                             onChange={handleChange}
                         />
-                        <label htmlFor="experience">Experience</label>
                     </div>
                 </div>
                 <div className="row">
