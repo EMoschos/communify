@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import API from "../../utils/API"
 import Auth from "../../routes/Auth"
-import M, { Datepicker } from 'materialize-css'
+import M from 'materialize-css'
 import FuncContext from "../../utils/FuncContext"
 import { DatePicker, Select } from 'react-materialize';
 
@@ -75,17 +75,6 @@ function TaskCreate() {
         setNewTask(task => ({ ...task, taskExpires: date }))
     }
 
-    document.addEventListener('DOMContentLoaded', function () {
-        // const elems = document.querySelectorAll('.datepicker');
-        const elems1 = document.querySelectorAll('select');
-        M.FormSelect.init(elems1);
-        // M.Datepicker.init(elems, {
-        //     container: "body",
-        //     format: "dd-mm-yyyy",
-        //     onSelect: datePicker
-        // })
-    });
-
     return (
         <div className="row">
             <form className="col s12">
@@ -128,24 +117,24 @@ function TaskCreate() {
                 </div>
                 <div className="row">
                     <DatePicker
-                    label="Task Expiry Date"
+                        label="Task Expiry Date"
                         placeholder="Expiry Date"
                         id="taskExpires"
                         value={newTask.taskExpires}
                         onChange={datePicker}
                     />
-                        <Select label="Task Category"
-                            placeholder="This task category is"
-                            id="category"
-                            type="select"
-                            value={newTask.category}
-                            onChange={handleChange}
-                        >
-                            <option value="" disabled>Choose Category</option>
-                            <option value="Physical">Physical</option>
-                            <option value="Education">Education</option>
-                            <option value="IT">IT</option>
-                        </Select>
+                    <Select label="Task Category"
+                        placeholder="This task category is"
+                        id="category"
+                        type="select"
+                        value={newTask.category}
+                        onChange={handleChange}
+                    >
+                        <option value="" disabled>Choose Category</option>
+                        <option value="Physical">Physical</option>
+                        <option value="Education">Education</option>
+                        <option value="IT">IT</option>
+                    </Select>
                 </div>
                 <div className="row">
                     <button className="btn waves-effect waves-light" type="submit" name="action" onClick={handleTaskCreate}>Submit

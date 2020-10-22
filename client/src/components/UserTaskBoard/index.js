@@ -1,37 +1,29 @@
 import React, { useContext } from "react";
 import M from 'materialize-css'
 import "./style.css";
+import { Collapsible, CollapsibleItem } from 'react-materialize';
+
 
 const UserTaskBoard = (props) => {
 
     return (
-        <ul className="collapsible">
+        <Collapsible>
             {props.data.map(data => {
                 return (
-                    <li key={data._id}>
-                        <div className="collapsible-header">
-                            <p className="listPad">TITLE: {data.title}</p>
-                            <p className="listPad center-align">DESCRIPTION: {data.description}</p>
-                            <p className="listPad right-align"> CREATOR: {data.createdBy}</p>
-                        </div>
-                        <div className="collapsible-body">
-                            <h6>Location: {data.location}</h6>
-                            <h6>Task Status: {data.taskStatus}</h6>
-                            <h6>Task Expires: {data.taskExpires}</h6>
-                            <h6>Status Value: {data.statusValue}</h6>
-                            <h6>Accepted By: {data.completedBy}</h6>
-                        </div>
-                    </li>
-                );
+                    <CollapsibleItem key={data._id} header={`TITLE: ${data.title}`}>
+                        <h6><span className="bold">Description:</span> <span className="taskList">{data.description}</span></h6>
+                        <h6><span className="bold">Creator:</span> <span className="taskList">{data.createdBy}</span></h6>
+                        <h6><span className="bold">Location:</span> <span className="taskList">{data.location}</span></h6>
+                        <h6><span className="bold">Task Status:</span> <span className="taskList">{data.taskStatus}</span></h6>
+                        <h6><span className="bold">Task Expires:</span> <span className="taskList">{data.taskExpires}</span></h6>
+                        <h6><span className="bold">Status Value: </span> <span className="taskList">{data.statusValue}</span></h6>
+                        <h6><span className="bold">Accepted By: </span> <span className="taskList">{data.completedBy}</span></h6>
+                    </CollapsibleItem>
+                    );
             })}
+        </Collapsible>
 
-        </ul>
     );
 };
-
-document.addEventListener('DOMContentLoaded', function () {
-    var elems = document.querySelectorAll('.collapsible');
-    M.Collapsible.init(elems);
-});
 
 export default UserTaskBoard;

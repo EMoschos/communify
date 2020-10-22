@@ -1,3 +1,7 @@
-.listPad{
-    padding-right: 5%;
+.taskList{
+    font-style: italic;
+}
+
+.bold {
+    font-weight: bolder;
 }

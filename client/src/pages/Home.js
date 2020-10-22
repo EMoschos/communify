@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import M from 'materialize-css'
 import CreateTask from "../components/TaskCreate"
 import TaskBoard from "../components/TaskBoard";
@@ -6,16 +6,6 @@ import { Modal, Button } from 'react-materialize';
 
 function Home() {
   const trigger = <Button>Open Modal</Button>;
-  // useEffect(() => {
-  //   document.addEventListener('DOMContentLoaded', function () {
-  //     var elems = document.querySelectorAll('.slider');
-  //     M.Slider.init(elems);
-  //     var elems1 = document.querySelectorAll('.modal');
-  //     M.Modal.init(elems1);
-  //     var elems2 = document.querySelectorAll('.parallax');
-  //     M.Parallax.init(elems2);
-  //   });
-  // }, [])
 
   return (
     <>
