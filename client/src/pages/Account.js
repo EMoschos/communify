@@ -60,7 +60,7 @@ const Account = () => {
         console.log(id)
         API.deleteCreatedTasks(id).then(res => {
             if (res.status === 200) {
-                M.toast({ html: "You Deleted the Task" });
+                M.toast({ html: "You deleted the task" });
                 updateContextTasks()
             } else {
                 console.log("Some error ocurred");
@@ -77,7 +77,7 @@ const Account = () => {
         console.log(id)
         API.deleteCreatedTasks(id).then(res => {
             if (res.status === 200) {
-                M.toast({ html: "You Deleted the Task" });
+                M.toast({ html: "You resigned from the task" });
                 updateContextTasks()
             } else {
                 console.log("Some error ocurred");
