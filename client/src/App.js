@@ -21,10 +21,7 @@ function App() {
 
   const updateContextTasks = () => {
     const id = user._id
-    console.log(id)
     API.getTasks().then((res) => {
-      console.log("Get All Updated Context Tasks");
-      console.log(res.data);
       setContextTasks(res.data);
     });
     getUser();
@@ -37,7 +34,6 @@ function App() {
 
   const getUser = () => {
     API.getUser().then(res => {
-      console.log(res.data);
       setUser(res.data)
     })
   }

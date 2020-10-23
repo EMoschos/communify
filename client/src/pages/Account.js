@@ -1,16 +1,19 @@
 import React, { useState, useEffect, useContext } from "react";
 import TaskCreate from "../components/TaskCreate";
-// import API from "../utils/API";
+import API from "../utils/API";
+import M from 'materialize-css'
 import UserTaskBoard from "../components/UserTaskBoard";
-import M from 'materialize-css';
 import UserContext from "../utils/UserContext";
 import TaskContext from "../utils/TaskContext";
 import UpdateUser from "../components/UpdateUser";
+import FuncContext from "../utils/FuncContext"
 import { Tabs, Tab, Modal, Button } from "react-materialize";
+
 
 const Account = () => {
     const user = useContext(UserContext)
     const contextTasks = useContext(TaskContext)
+    const updateContextTasks = useContext(FuncContext)
 
     let filterCompletedByTasks
     let filterCreatedByTasks
@@ -51,11 +54,40 @@ const Account = () => {
         }
     }
 
-    // function removeAcceptTask(id) {
+   function createdTaskDelete(e) {
+        e.preventDefault()
+        const id = e.target.getAttribute('data-id')
+        console.log(id)
+        API.deleteCreatedTasks(id).then(res => {
+            if (res.status === 200) {
+                M.toast({ html: "You Deleted the Task" });
+                updateContextTasks()
+            } else {
+                console.log("Some error ocurred");
+            }
+        }).catch(err => {
+            console.log(err);
+        });
 
-    // }
-    // // const editTrigger = <Button><i className="material-icons">create</i></Button>;
-    // const createTrigger = <Button onClick={}>Create Task</Button>;
+    }
+
+    function acceptedTaskResign(e) {
+        e.preventDefault()
+        const id = e.target.getAttribute('data-id')
+        console.log(id)
+        API.deleteCreatedTasks(id).then(res => {
+            if (res.status === 200) {
+                M.toast({ html: "You Deleted the Task" });
+                updateContextTasks()
+            } else {
+                console.log("Some error ocurred");
+            }
+        }).catch(err => {
+            console.log(err);
+        });
+
+    }
+
 
     return (
         <div className="container">
@@ -94,20 +126,25 @@ const Account = () => {
                                 </Tab>
                                 <Tab title="Accepted Tasks" idx="tab-2">
                                     <div className="card-content grey lighten-4">
-                                        <UserTaskBoard data={filterCompletedByTasks} />
+                                        <UserTaskBoard data={filterCompletedByTasks}
+                                        onClick={acceptedTaskResign}
+                                        tooltip="Resign from Task" />
                                     </div>
                                 </Tab>
                                 <Tab title="Created Tasks" idx="tab-3">
                                     <div className="card-content grey lighten-4">
-                                        <UserTaskBoard data={filterCreatedByTasks} />
+                                        <UserTaskBoard 
+                                        data={filterCreatedByTasks}
+                                        onClick={createdTaskDelete} 
+                                        tooltip="Delete created task"/>
                                     </div>
                                 </Tab>
 
                             </Tabs>
                             <div className="card-action blue-grey lighten-2">
-                                <Modal 
-                                header="Create Task" 
-                                trigger={<Button>Create Task</Button>}
+                                <Modal
+                                    header="Create Task"
+                                    trigger={<Button>Create Task</Button>}
                                 >
                                     <TaskCreate />
                                 </Modal>

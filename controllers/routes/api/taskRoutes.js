@@ -37,6 +37,19 @@ router
     console.log(req.body)
     db.Task.findOneAndUpdate({ _id: req.params.id }, { $set: { completedBy: req.user.email }}, { new: true })
       .then(dbModel => {
+        console.log("Update with id")
+        console.log(dbModel)
+        res.json(dbModel)
+        }
+      )
+      .catch(err => res.status(422).json(err));
+  })
+  .delete(function (req, res) {
+    console.log(req.params.id)
+    console.log("delete task with id")
+    db.Task.deleteOne({ _id: req.params.id })
+      .then(dbModel => {
+        console.log("inside delete one")
         console.log(dbModel)
         res.json(dbModel)
         }
@@ -44,6 +57,19 @@ router
       .catch(err => res.status(422).json(err));
   })
   
+  router
+  .route("/resign/:id")
+  .put(function (req, res) {
+    console.log(req.body)
+    db.Task.findOneAndUpdate({ _id: req.params.id }, { $set: { completedBy: "" }}, { new: true })
+      .then(dbModel => {
+        console.log("Update with remove of user")
+        console.log(dbModel)
+        res.json(dbModel)
+        }
+      )
+      .catch(err => res.status(422).json(err));
+  })
 
 
 module.exports = router;

@@ -32,5 +32,11 @@ export default {
   },
   acceptTasks: function(id) {
     return axios.put("/api/task/" + id);
+  },
+  deleteCreatedTasks: function(id) {
+    return axios.delete("/api/task/" + id);
+  },
+  resignFromTask: function(id) {
+    return axios.put("/api/task/resign/" + id);
   }
 };

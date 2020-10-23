@@ -42,7 +42,7 @@ function Home() {
               <h1 className="light grey-text text-darken-3 amaticFont">
                 Start Your Community Quest Today!
                     </h1>
-              <h4 className="light red-text text-darken-3 rightFont">
+              <h4 className="light red-text rightFont">
                 Click The Button Below!
                     </h4>
             </Caption>
@@ -65,7 +65,7 @@ function Home() {
         </Parallax>
         <div className="section white">
           <div className="card-panel">
-            <h3 className="center-align black-text bungeeFont">TASKBOARD</h3>
+            <h3 className="center-align black-text bungeeFont z-depth-4">TASKBOARD</h3>
             <TaskBoard />
           </div>
         </div>

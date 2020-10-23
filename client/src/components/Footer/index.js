@@ -3,17 +3,17 @@ import React from "react";
 function Footer() {
 
     return (
-        <footer class="page-footer blue">
-            <div class="container">
-                <div class="row">
-                    <div class="col l6 s12">
-                        <h5 class="white-text">Dev Bio</h5>
-                        <p class="grey-text text-lighten-4">
+        <footer className="page-footer blue">
+            <div className="container">
+                <div className="row">
+                    <div className="col l6 s12">
+                        <h5 className="white-text">Dev Bio</h5>
+                        <p className="grey-text text-lighten-4">
                             Terry is a Full-Stack Web Developer.  He has put in countless hours in order to deliver this project before the deadline date.  This project will be continually evolving so watch this space!!!
                          </p>
                     </div>
-                    <div class="col l4 offset-l2 s12">
-                        <h5 class="white-text">Profile</h5>
+                    <div className="col l4 offset-l2 s12">
+                        <h5 className="white-text">Profile</h5>
                         <ul>
                             <li><i className="fas fa-user"></i> Eleftherios Moschos</li>
                             <li><i className="fas fa-envelope"></i> tmoschos@bigpond.com</li>
@@ -28,9 +28,9 @@ function Footer() {
                     </div>
                 </div>
             </div>
-            <div class="footer-copyright">
-                <div class="container">
-                    Made with <a class="brown-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+            <div className="footer-copyright">
+                <div className="container">
+                    Made with <a className="brown-text text-lighten-3" href="http://materializecss.com">Materialize</a>
                 </div>
             </div>
         </footer>
