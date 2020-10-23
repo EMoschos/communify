@@ -7,105 +7,69 @@ function Home() {
 
   return (
     <>
-    <div className="container">
-            <div className="section">
-              <Slider
-                fullscreen={false}
-                options={{
-                  duration: 500,
-                  height: 400,
-                  indicators: true,
-                  interval: 6000
-                }}
-              >
-                <Slide image={<img alt="" src="./img/volunt1.png" />}>
-                  <Caption placement="center">
-                    <h3 className="light grey-text text-darken-3 z-depth-4">
-                      This is our big Tagline!
+      <div className="section">
+        <Slider
+          fullscreen={false}
+          options={{
+            duration: 500,
+            height: 400,
+            indicators: true,
+            interval: 6000
+          }}
+        >
+          <Slide image={<img alt="" src="./img/volunt1.png" />}>
+            <Caption placement="left" className="z-depth-4">
+              <h3 className="light grey-text text-lighten-3 rightFont">
+                COMMUNIFYING THE POEPLE!
                 </h3>
-                    <h5 className="light grey-text text-lighten-3">
-                      Here's our small slogan.
+              <h5 className="light grey-text text-lighten-3 rightFont">
+                Bringing people together through action!
                 </h5>
-                  </Caption>
-                </Slide>
-                <Slide image={<img alt="" src="./img/volunt2.jpg" />}>
-                  <Caption placement="left" className="z-depth-4">
-                    <h3 className="light black-text amaticFont">
-                      Left Aligned Caption
+            </Caption>
+          </Slide>
+          <Slide image={<img alt="" src="./img/volunt2.jpg" />}>
+            <Caption placement="right" className="z-depth-4">
+              <h1 className="light  light-green-text accent-3 amaticFont">
+                Complete Tasks and Rise the ranks!
+                </h1>
+              <h3 className="light purple-text text-darken-3 amaticFont">
+                Be a Local Legend!
                 </h3>
-                    <h5 className="light grey-text text-lighten-3">
-                      Here's our small slogan.
-                </h5>
-                  </Caption>
-                </Slide>
-                <Slide image={<img alt="" src="./img/volunt3.jpg" />}>
-                  <Caption placement="right">
-                    <h3 className="light grey-text text-darken-3 amaticFont z-depth-4">
-                      Right Aligned Caption
-                    </h3>
-                    <h5 className="light grey-text text-lighten-3 z-depth-4">
-                      Here's our small slogan.
-                    </h5>
-                  </Caption>
-                </Slide>
-                <Slide image={<img alt="" src="./img/volunt4.jpg" />}>
-                  <Caption placement="center">
-                    <h3 className="light grey-text text-darken-3 amaticFont">
-                      This is our big Tagline!
-                    </h3>
-                    <h5 className="light grey-text text-darken-3 rightFont">
-                      Here's our small slogan.
-                    </h5>
-                  </Caption>
-                </Slide>
-              </Slider>
-            </div>
-          </div>
+            </Caption>
+          </Slide>
+          <Slide image={<img alt="" src="./img/volunt4.jpg" />}>
+            <Caption placement="center" className="z-depth-4">
+              <h1 className="light grey-text text-darken-3 amaticFont">
+                Start Your Community Quest Today!
+                    </h1>
+              <h4 className="light red-text text-darken-3 rightFont">
+                Click The Button Below!
+                    </h4>
+            </Caption>
+          </Slide>
+        </Slider>
+      </div>
+
       <div>
         <Parallax
-          image={<img alt="" src="./img/handbg.jpg" />}
+          image={<img alt="" src="./img/Volunteer-Hands.jpg" />}
           options={{
             responsiveThreshold: 0
           }}
-        />
+        ><div class="container">
+              <h1 class="header center black-text luckyFont">Communify</h1>
+            <div class="row center">
+              <a href="/signup" id="download-button" class="btn-large waves-effect waves-light red z-depth-4">SIGN UP TO COMMUNIFY</a>
+            </div>
+          </div>
+        </Parallax>
         <div className="section white">
           <div className="card-panel">
             <h3 className="center-align black-text bungeeFont">TASKBOARD</h3>
             <TaskBoard />
           </div>
         </div>
-        <Parallax
-          image={<img alt="" src="./img/handbg.jpg" />}
-          options={{
-            responsiveThreshold: 0
-          }}
-        />
       </div>
-      <footer class="page-footer">
-          <div class="container">
-            <div class="row">
-              <div class="col l6 s12">
-                <h5 class="white-text">Footer Content</h5>
-                <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
-              </div>
-              <div class="col l4 offset-l2 s12">
-                <h5 class="white-text">Links</h5>
-                <ul>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="footer-copyright">
-            <div class="container">
-            © 2014 Copyright Text
-            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-            </div>
-          </div>
-        </footer>
     </>
   );
 };

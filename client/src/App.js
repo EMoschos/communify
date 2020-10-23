@@ -12,6 +12,7 @@ import NoMatch from "./pages/NoMatch";
 import SignUpForm from "./components/SignUpForm"
 import Login from "./components/Login"
 import Auth from "./routes/Auth"
+import Footer from "./components/Footer";
 
 function App() {
 
@@ -55,7 +56,6 @@ function App() {
       <TaskContext.Provider value={contextTasks}>
         <FuncContext.Provider value={updateContextTasks}>
           <div>
-            
             <Router>
             <Nav />
               <Switch>
@@ -66,6 +66,7 @@ function App() {
                 <Route exact path="/login" component={Login} />
                 <Route path="*" component={NoMatch} />
               </Switch>
+              <Footer/>
             </Router>
           </div>
         </FuncContext.Provider>
