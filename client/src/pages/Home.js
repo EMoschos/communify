@@ -1,5 +1,4 @@
 import React from "react";
-import M from 'materialize-css'
 import TaskBoard from "../components/TaskBoard";
 import { Slide, Slider, Caption, Parallax } from 'react-materialize';
 import "./style.css";

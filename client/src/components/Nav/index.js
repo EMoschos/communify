@@ -50,7 +50,7 @@ function Nav() {
     <header>
       <nav className="blue" role="navigation">
         <div className="nav-wrapper">
-          <a href="/" className="brand-logo">Communify</a>
+          <a href="/" className="brand-logo">CommUnify</a>
           <a href="/" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a>
           <ul className="right hide-on-med-and-down">
             {isLoggedInBtns()}
