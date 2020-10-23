@@ -51,8 +51,11 @@ const Account = () => {
         }
     }
 
-    // const editTrigger = <Button><i className="material-icons">create</i></Button>;
-    // const createTrigger = <Button>Create Task</Button>;
+    // function removeAcceptTask(id) {
+
+    // }
+    // // const editTrigger = <Button><i className="material-icons">create</i></Button>;
+    // const createTrigger = <Button onClick={}>Create Task</Button>;
 
     return (
         <div className="container">
