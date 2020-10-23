@@ -71,7 +71,7 @@ function Home() {
         />
         <div className="section white">
           <div className="card-panel">
-            <h3 className="center-align blue white-text bungeeFont">TASKBOARD</h3>
+            <h3 className="center-align black-text bungeeFont">TASKBOARD</h3>
             <TaskBoard />
           </div>
         </div>
